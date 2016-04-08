@@ -1,6 +1,5 @@
 # Revizr
 
-<<<<<<< HEAD
 #commit test
 =======
 Test-rory
