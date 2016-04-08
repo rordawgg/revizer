@@ -17,6 +17,7 @@ class CreateRevisionsTable extends Migration
             $table->integer('user_id');
             $table->integer('doc_id');
             $table->timestamps();
+            
         });
     }
 
