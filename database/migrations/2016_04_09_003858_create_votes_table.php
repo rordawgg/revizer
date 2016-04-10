@@ -14,7 +14,7 @@ class CreateVotesTable extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('rev_id');
+            $table->integer('revision_id');
             $table->integer('user_id');
         });
     }
@@ -26,6 +26,6 @@ class CreateVotesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('votes');
     }
 }
