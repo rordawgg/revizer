@@ -1,8 +1,6 @@
 @extends("layout")
 
-@section("title")
-<h1></h1>
-@stop
+@section("title", $doc->title)
 
 @section("content")
 
