@@ -4,6 +4,6 @@
 
 @section("content")
 
-{{ $doc->all() }}
+	{{ $doc->all() }}
 
 @stop

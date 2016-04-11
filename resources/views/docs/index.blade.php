@@ -1,7 +1,7 @@
 @extends("layout")
 
 @section("title")
-All Docs
+	All Docs
 @stop
 
 @section("content")
@@ -11,7 +11,7 @@ All Docs
 @endif
 
 @foreach ($docs as $doc)
-<li>{{ $doc->title }}</li>
+	<li>{{ $doc->title }}</li>
 @endforeach
 
 @stop
