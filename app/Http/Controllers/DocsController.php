@@ -26,4 +26,19 @@ class DocsController extends Controller
 	{
 		return view("docs.edit")->withDoc($doc);
 	}
+
+	public function update(Request $request, Doc $doc)
+	{
+		$this->validate($request, [
+			"title" => "required",
+			"description" => "required",
+			"body" => "required",
+			"criteria" => "required"
+		]);
+
+		$doc->update($request->update());
+		$doc->save();
+
+		return back();
+	}
 }
