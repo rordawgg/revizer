@@ -1,10 +1,14 @@
 @extends("layout")
 
 @section("title")
-<h1>All Docs</h1>
+All Docs
 @stop
 
 @section("content")
+
+@if(count($docs)==0)
+	<h1>No Docs</h1>
+@endif
 
 @foreach ($docs as $doc)
 <li>{{ $doc->title }}</li>
