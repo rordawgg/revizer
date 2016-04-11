@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-        <head>
-            <meta charset="UTF-8">
-            
-            <title>@yield('title')</title>
-        </head>
+    <head>
+        <meta charset="UTF-8">
+        
+        <title>@yield('title')</title>
+    </head>
 
 
 
-            <body>
-                	
-                	@yield('content')
-                
-                	@yield('footer')
-                	
-            </body>
+    <body>
+        	
+        	@yield('content')
+        
+        	@yield('footer')
+        	
+    </body>
 
 </html>
