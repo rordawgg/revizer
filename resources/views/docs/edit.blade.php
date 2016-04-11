@@ -9,6 +9,7 @@
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="hidden" name="_method" value="patch">
 		
+			<input name="title" value="{{ $doc->title }}"/>
 			<input name="description" value="{{ $doc->description }}"/>
 			<input name="criteria" value="{{ $doc->criteria }}"/>
 			<textarea name="body">{{ $doc->body }}</textarea>
