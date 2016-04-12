@@ -11,13 +11,6 @@ class DocsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("docs")->insert([
-            "user_id" => 1,
-            "title" => str_random(20),
-            "description" => str_random(150),
-            "criteria" => str_random(100),
-            "body" => str_random(300),
-            "active_revision" => 1
-        ]);
+        //DB::table("docs")->insert();
     }
 }
