@@ -36,7 +36,7 @@ class DocsController extends Controller
 			"criteria" => "required"
 		]);
 
-		$doc->update($request->update());
+		$doc->fill($request->all());
 		$doc->save();
 
 		return back();

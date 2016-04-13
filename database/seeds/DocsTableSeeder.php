@@ -11,6 +11,6 @@ class DocsTableSeeder extends Seeder
      */
     public function run()
     {
-        //DB::table("docs")->insert();
+        // DB::table("docs")->insert();
     }
 }
