@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $docs = Auth::user()->docs()->get()->sortByDesc('updated_at');
+        
+        return view('home', compact('docs'));
     }
 }

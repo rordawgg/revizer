@@ -1,17 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <section>
+    <h1>My Documents</h1>
+    <hr/>
+    @foreach($docs as $doc)
+        <article>
+            
+            <h3>{{ $doc->title }}</h3>
+            <p>{{ $doc->criteria }}</p>
+            
+            <ul>
+                <li>Revisions (num)</li>
+                <li>Comments (num)</li>
+                <li>Votes (num)</li>
+            </ul>
+            <hr/>
+        </article>
+    @endforeach
+    </section>
 @endsection
