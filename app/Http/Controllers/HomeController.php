@@ -25,8 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $docs = Auth::user()->docs()->get()->sortByDesc('updated_at');
+        $docs = Auth::user()->docs->sortByDesc('updated_at');
         
-        return view('home', compact('docs'));
+        return view('home')->withDocs($docs);
     }
 }
