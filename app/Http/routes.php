@@ -20,3 +20,7 @@ Route::get("/doc/{doc}", "DocsController@show");
 Route::get("/doc/{doc}/edit", "DocsController@edit");
 Route::patch("/doc/{doc}/edit", "DocsController@update");
 
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
