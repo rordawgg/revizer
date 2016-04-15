@@ -1,10 +1,10 @@
 @extends("layout")
 
-@section("title", $doc->title)
+@section("title", "Add Document"
 
 @section("content")
 
-<form method="post" action="/doc/{{ $doc->id }}/create">
+<form method="post" action="/doc/add">
    
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		
