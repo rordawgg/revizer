@@ -11,7 +11,9 @@
 @endif
 
 @foreach ($docs as $doc)
-	<li>{{ $doc->title }}</li>
+	<li>
+		<a href="/doc/{{ $doc->id }}">{{ $doc->title }}</a>
+	</li>
 @endforeach
 
 @stop
