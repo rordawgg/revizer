@@ -4,7 +4,7 @@
 
 @section("content")
 
-<form method="post" action="/doc/add">
+<form method="post" action="/doc">
    
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		
@@ -14,5 +14,15 @@
 			Body:<textarea name="body"></textarea>
 			<button	type="submit">Create Doc</button>
 </form>
+
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 @stop

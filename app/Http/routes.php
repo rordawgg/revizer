@@ -16,6 +16,8 @@ Route::get("/", function () {
 });
 
 Route::get("/doc", "DocsController@index");
+Route::post("/doc", "DocsController@store");
+Route::get("/doc/add", "DocsController@create");
 Route::get("/doc/{doc}", "DocsController@show");
 Route::get("/doc/{doc}/edit", "DocsController@edit");
 Route::patch("/doc/{doc}/edit", "DocsController@update");

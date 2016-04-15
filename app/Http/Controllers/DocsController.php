@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Doc;
+use Auth;
 
 class DocsController extends Controller
 {
@@ -25,6 +26,27 @@ class DocsController extends Controller
 	public function show(Doc $doc)
 	{
 		return view("docs.show")->withDoc($doc);
+	}
+
+	public function create()
+	{
+		return view("docs.create");
+	}
+
+	public function store(Request $request)
+	{
+		$this->validate($request, [
+			"title" => "required",
+			"description" => "required",
+			"criteria" => "required",
+			"body" => "required"
+		]);
+
+		$user = Auth::user();
+		$doc = new Doc($request->all());
+		$user->docs()->save($doc);
+
+		return redirect("/doc/" . $doc->id);
 	}
 
 	public function edit(Doc $doc)

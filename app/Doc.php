@@ -12,4 +12,9 @@ class Doc extends Model
     	"description",
     	"criteria"
     ];
+
+    public function user()
+    {
+    	return $this->belongsTo("App\User");
+    }
 }
