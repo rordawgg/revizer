@@ -18,7 +18,7 @@ Route::group(['middleware' => "auth"], function(){
 	
 	Route::post("/doc", "DocsController@store");
 	Route::get("/doc/add", "DocsController@create");
-	Route::get("/doc/{doc}/edit", "DocsController@edit");
+	Route::get("/doc/{doc}/edit", ["middleware" => "belongs", "uses" => "DocsController@edit"]);
 	Route::patch("/doc/{doc}/edit", "DocsController@update");
 });
 
