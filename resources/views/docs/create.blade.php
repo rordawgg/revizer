@@ -1,6 +1,6 @@
 @extends("layout")
 
-@section("title", "Add Document"
+@section("title", "Add Document")
 
 @section("content")
 
