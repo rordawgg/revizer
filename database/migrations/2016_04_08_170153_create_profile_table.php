@@ -18,8 +18,8 @@ class CreateProfileTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('avatar');
-            $table->string('username');
-            $table->timestamps('created_at');
+            $table->string('username')->unique();
+            $table->timestamps();
         });
     }
 
