@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('partial.search')
     <section>
     <h1>My Documents</h1>
     <hr/>

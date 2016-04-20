@@ -63,4 +63,13 @@ class DocsController extends Controller
 
 		return back();
 	}
+
+	public function search(Request $request) 
+	   {
+	   	
+		$search = Doc::SearchByKeyword($request->keyword)->get();
+
+	   return view("docs.search_results")->withSearch($search);
+	
+	   }
 }

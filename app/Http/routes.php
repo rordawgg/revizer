@@ -28,6 +28,7 @@ Route::get("/", function () {
 	});
 
 Route::get("/doc", "DocsController@index");
+Route::post("/search", "DocsController@search");
 Route::get("/doc/{doc}", "DocsController@show");
 Route::auth();
 Route::get('/home', 'HomeController@index');
