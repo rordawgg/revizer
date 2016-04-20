@@ -32,4 +32,4 @@ Route::post("/search", "DocsController@search");
 Route::get("/doc/{doc}", "DocsController@show");
 Route::auth();
 Route::get('/home', 'HomeController@index');
-Route::get("/user/profile/{username}", "ProfileController@show");
+Route::get("/user/{username}", "ProfileController@show");
