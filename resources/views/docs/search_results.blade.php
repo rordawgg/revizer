@@ -1,6 +1,10 @@
 @extends('layout')
 	@section('content')
 
+
+		@if(count($search) === 0)
+			<h1>No results</h1>
+		@endif
 		@foreach($search as $doc)
 		        <article>
 		            
