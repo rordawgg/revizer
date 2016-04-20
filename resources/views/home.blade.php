@@ -4,7 +4,7 @@
     <section>
     <h1>My Documents</h1>
     <hr/>
-    @foreach($docs as $doc)
+    @foreach($user->docs as $doc)
         <article>
             
             <h3>{{ $doc->title }}</h3>

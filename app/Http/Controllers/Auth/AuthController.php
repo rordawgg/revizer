@@ -72,7 +72,7 @@ class AuthController extends Controller
             "username" => $data["username"],
             "avatar" => md5($data["email"])
         ]);
-        dd($user->profile());
-        //return $user;
+
+        return $user;
     }
 }
