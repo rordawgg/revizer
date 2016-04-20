@@ -1,5 +1,4 @@
-<form action="/search" method="post">
-	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<form action="/search" method="get">
 	<input type="text" name="keyword">
 	<input type="submit" value="Search">
 </form>
