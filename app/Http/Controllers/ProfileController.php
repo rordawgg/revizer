@@ -12,11 +12,15 @@ use App\Http\Requests;
 
 class ProfileController extends Controller
 {
-    public function show($username)
+    public function show($username = null)
     {
-    	$profile = Profile::where("username", "=", $username)->first();
+        if (isset($username)) {
+            $profile = Profile::where("username", "=", $username)->first();
+        } else {
+            $profile = Auth::user()->profile;
+        }
+
     	$docs = Doc::where("user_id", "=", $profile->user_id)->get();
-    
     	return view("profiles.show")->withProfile($profile)->withDocs($docs);
     }
 

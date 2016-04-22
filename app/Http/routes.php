@@ -20,14 +20,15 @@ Route::group(['middleware' => "auth"], function(){
 	Route::get("/doc/add", "DocsController@create");
 	Route::get("/doc/{doc}/edit", ["middleware" => "belongs", "uses" => "DocsController@edit"]);
 	Route::patch("/doc/{doc}/edit", "DocsController@update");
-	Route::get("/profile/me", "ProfileController@edit");
-	Route::patch("/profile/me", "ProfileController@update");
+	Route::get("/user/me", "ProfileController@show");
+	Route::patch("/user/me", "ProfileController@update");
+	Route::get("/user/me/edit", "ProfileController@edit");
 });
 
 
 Route::get("/", function () {
-    	return view("welcome");
-	});
+	return view("welcome");
+});
 
 Route::get("/doc", "DocsController@index");
 Route::get("/search", "DocsController@search");
