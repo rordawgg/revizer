@@ -13,7 +13,7 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'email' => $faker->safeEmail,
+        'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('password'),
         'remember_token' => str_random(10),
         'created_at' => $faker->dateTimeBetween('-2 years', '-1 years'),
@@ -39,7 +39,6 @@ $factory->define(App\Doc::class, function (Faker\Generator $faker){
         'description' => $faker->realText(150),
         'criteria' => $faker->realText(100),
         'body' => $faker->paragraph(5),
-        'active_revision' => $faker->randomDigitNotNull,
         'created_at' => $faker->dateTimeBetween('-2 years', '-1 years'),
         'updated_at' => $faker->dateTimeBetween('-6 months', 'now'),
         
