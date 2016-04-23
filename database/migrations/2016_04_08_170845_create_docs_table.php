@@ -19,7 +19,6 @@ class CreateDocsTable extends Migration
             $table->text("description");
             $table->text("criteria");
             $table->text("body");
-            $table->integer("active_revision");
             $table->timestamps();
         });
     }
