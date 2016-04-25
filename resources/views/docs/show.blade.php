@@ -4,6 +4,11 @@
 
 @section("content")
 
+	@if($doc->user_id === Auth::user()->id)
+	    <div>
+	        <a href="/doc/{{ $doc->id }}/edit">Edit</a>
+	    </div>
+	@endif
 	<header>
 		<h1>{{ $doc->title }}</h1>
 	</header>
