@@ -14,12 +14,13 @@ class CreateDocsTable extends Migration
     {
         Schema::create('docs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("user_id");
-            $table->string("title");
-            $table->text("description");
-            $table->text("criteria");
-            $table->text("body");
+            $table->integer('user_id');
+            $table->string('title');
+            $table->text('description');
+            $table->text('criteria');
+            $table->text('body');
             $table->timestamps();
+            
         });
     }
 
