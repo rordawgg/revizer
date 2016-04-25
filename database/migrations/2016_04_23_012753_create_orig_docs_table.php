@@ -12,9 +12,9 @@ class CreateOrigDocsTable extends Migration
      */
     public function up()
     {
-        Schema::create('origDocs', function (Blueprint $table) {
+        Schema::create('odocs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("user_id");
+            $table->integer("doc_id");
             $table->string("title");
             $table->text("description");
             $table->text("criteria");
@@ -30,6 +30,6 @@ class CreateOrigDocsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('origDocs');
+        Schema::drop('odocs');
     }
 }
