@@ -4,7 +4,7 @@
 
 @section("content")
 
-<form method="post" action="/doc/{{ $doc->id }}/edit">
+<form method="post" action="{{ action('DocsController@edit', $doc->id) }}">
    
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="hidden" name="_method" value="patch">

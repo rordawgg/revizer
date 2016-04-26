@@ -6,7 +6,7 @@
 
 	@if($doc->user_id === Auth::user()->id)
 	    <div>
-	        <a href="/doc/{{ $doc->id }}/edit">Edit</a>
+	        <a href="{{ action('DocsController@edit', $doc->id) }}">Edit</a>
 	    </div>
 	@endif
 	<header>
