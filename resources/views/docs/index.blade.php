@@ -5,6 +5,7 @@
 @stop
 
 @section("content")
+@include('partial.search')
 
 @if(count($docs)==0)
 	<h1>No Docs</h1>
