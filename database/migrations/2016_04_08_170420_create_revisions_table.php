@@ -16,6 +16,7 @@ class CreateRevisionsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('doc_id');
+            $table->text('description');
             $table->text('body');
             $table->boolean('accepted');
             $table->timestamps();
