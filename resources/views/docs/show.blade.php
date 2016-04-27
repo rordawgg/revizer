@@ -27,6 +27,8 @@
 		<p>{{ $doc->body }}</p>
 	</div>
 
+
+<h1>Revisions</h1>
 	@if(count($doc->revisions)!==0)
 		@include('docs.revisions')
 	@else

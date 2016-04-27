@@ -36,3 +36,4 @@ Route::get("/doc/{doc}", "DocsController@show");
 Route::auth();
 Route::get('/home', 'HomeController@index');
 Route::get("/user/{username}", "ProfileController@show");
+Route::get("/doc/{doc}/revision/{revision}", "RevisionsController@show");
