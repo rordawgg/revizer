@@ -12,7 +12,7 @@ class RevisionsController extends Controller
 {
     public function create(Doc $doc)
     {
-    	return view("revisions.create")->with("docId", $doc->id);
+    	return view("revisions.create")->withDoc($doc);
     }
 
     public function show(Doc $doc, Revision $revision)
