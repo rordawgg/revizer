@@ -15,5 +15,4 @@ class Revision extends Model
     {
     	return $this->belongsTo("App\Doc");
     }
-
 }

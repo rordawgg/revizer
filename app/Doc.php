@@ -22,8 +22,7 @@ class Doc extends Model
     {
         return $this->hasMany("App\Revision");
     }
-
-
+    
     public function scopeSearchByKeyword($query, $keyword)
     {
         if ($keyword!='') {

@@ -23,6 +23,8 @@ Route::group(['middleware' => "auth"], function(){
 	Route::get("/user/me", "ProfileController@show");
 	Route::patch("/user/me", "ProfileController@update");
 	Route::get("/user/me/edit", "ProfileController@edit");
+	Route::get("/doc/{doc}/revision/create", "RevisionsController@create");
+	Route::post("/doc/{doc}/revision/create", "RevisionsController@store");
 });
 
 
