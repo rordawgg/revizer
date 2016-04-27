@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Doc;
+use App\Revision;
 use Auth;
 
 class DocsController extends Controller
@@ -20,6 +21,7 @@ class DocsController extends Controller
 
 	public function show(Doc $doc)
 	{
+		$doc = $doc->load("revisions");
 		return view("docs.show")->withDoc($doc);
 	}
 

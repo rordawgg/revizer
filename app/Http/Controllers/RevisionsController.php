@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class RevisionsController extends Controller
+class RevsionsController extends Controller
 {
     public function create(Doc $doc)
     {
-    	return view("revisions.create")->withDoc($doc);
+    	return view("revisions.create")->with("docId", $doc->id);
+    }
+
+    public function show(Rev $rev)
+    {
+    	
     }
 }
