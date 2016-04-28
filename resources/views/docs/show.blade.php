@@ -25,6 +25,7 @@
 		</div>
 
 		<div class="body">
+			<h2>Body</h2>
 			<p>{{ $doc->body }}</p>
 		</div>
 	</div>
