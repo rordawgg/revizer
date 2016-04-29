@@ -8,7 +8,8 @@
 
 
 
-    <body>
+    <body>  
+            @include("partial.message")
         	
         	@yield("content")
         

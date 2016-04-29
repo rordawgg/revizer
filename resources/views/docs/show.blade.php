@@ -29,10 +29,12 @@
 			<p>{{ $doc->body }}</p>
 		</div>
 	</div>
-
-	<div id="rev-cont">
-		<a href="{{ action('RevisionsController@create', ['doc' => $doc->id]) }}">REVISE</a>
-	</div>
+	
+	@unless(request()->user()->id === $doc->user_id)
+		<div id="rev-cont">
+			<a href="{{ action('RevisionsController@create', ['doc' => $doc->id]) }}">REVISE</a>
+		</div>
+	@endif
 
 
 <h1>Revisions</h1>
