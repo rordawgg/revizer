@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Revision;
 
 class Doc extends Model
 {
@@ -22,7 +23,15 @@ class Doc extends Model
     {
         return $this->hasMany("App\Revision");
     }
-    
+
+    public function hasAcceptedRevision()
+    {
+        return Revision::where("doc_id", "=", $this->id)
+                                            ->where("accepted", "=", 1)
+                                            ->orderBy("created_at", "DESC")
+                                            ->first();
+    }     
+
     public function scopeSearchByKeyword($query, $keyword)
     {
         if ($keyword!='') {
