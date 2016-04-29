@@ -25,6 +25,7 @@ Route::group(['middleware' => "auth"], function(){
 	Route::get("/user/me/edit", "ProfileController@edit");
 	Route::get("/doc/{doc}/revision/create", "RevisionsController@create")->middleware("auth_revision");
 	Route::post("/doc/{doc}/revision/create", "RevisionsController@store")->middleware("auth_revision");
+	Route::patch("/doc/{doc}/revision/{revision}", "RevisionsController@revise");
 });
 
 
