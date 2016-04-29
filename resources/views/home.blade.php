@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<a href="{{ action("DocsController@index") }}">Show All Documents</a>
 @include('partial.search')
+
     <section>
     <h1>My Documents</h1>
     <hr/>
