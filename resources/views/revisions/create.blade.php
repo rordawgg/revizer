@@ -10,7 +10,7 @@
 	<p>{{ $doc->criteria }}</p>
 </div>
 
-<form method="post" action="{{ action('RevisionsController@store', ['doc' => 1]) }}">
+<form method="post" action="{{ action('RevisionsController@store', ['doc' => $doc->id]) }}">
    
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			Description:<input name="description"/>
