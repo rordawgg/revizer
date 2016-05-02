@@ -8,13 +8,14 @@
 
 
 
-    <body>  
-            @include("partial.message")
-        	
-        	@yield("content")
-        
-        	@yield("footer")
-        	
+    <body>
+        @include("partial.nav")
+
+        @include("partial.message")
+    	
+    	@yield("content")
+    
+    	@yield("footer")
     </body>
 
 </html>
