@@ -12,6 +12,10 @@ class RevisionsController extends Controller
 {
     public function create(Doc $doc)
     {
+      $revision = $doc->hasAcceptedRevision();
+          if ($revision !== null) {
+              $doc->body = $revision->body;
+          }
     	return view("revisions.create")->withDoc($doc);
     }
 
