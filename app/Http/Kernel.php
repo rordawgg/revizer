@@ -50,5 +50,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'belongs' => \App\Http\Middleware\IsUsersDoc::class,
         'auth_revision' => \App\Http\Middleware\AuthorizeRevision::class,
+        'rev_belongs' => \App\Http\Middleware\RevisionBelongsToDoc::class,
     ];
 }
