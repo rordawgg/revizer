@@ -19,10 +19,11 @@ class RevisionBelongsToDoc
         $doc = $request->doc;
         $rev = $request->revision;
 
+        
         if (($rev->doc_id === $doc->id) && ($rev->accepted === 0)) {
             return $next($request);  
         }
-            request()->session()->flash("flash_message", "Revision Mismatch!");
-            return redirect("/doc/{$doc->id}");     
+        request()->session()->flash("flash_message", "Revision Mismatch!");
+        return redirect("/doc/{$doc->id}");     
     }
 }
