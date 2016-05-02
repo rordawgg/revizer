@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('content')
-<a href="{{ action("DocsController@index") }}">Show All Documents</a>
 @include('partial.search')
 
     <section>
