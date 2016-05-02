@@ -30,7 +30,7 @@
 		</div>
 	</div>
 	
-	@unless(request()->user()->id === $doc->user_id)
+	@unless(request()->user() && (request()->user()->id === $doc->user_id))
 		<div id="rev-cont">
 			<a href="{{ action('RevisionsController@create', ['doc' => $doc->id]) }}">REVISE</a>
 		</div>
