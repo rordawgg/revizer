@@ -5,11 +5,12 @@
 @section("content")
 
 	<div id="doc-cont">
-		@if(!empty(Auth::user()->id) && ($doc->user_id === Auth::user()->id))
+	{{--Future Feature--}}
+		{{--@if(!empty(Auth::user()->id) && ($doc->user_id === Auth::user()->id))
 		    <div>
 		        <a href="{{ action('DocsController@edit', $doc->id) }}">Edit</a>
 		    </div>
-		@endif
+		@endif--}}
 		<header>
 			<h1>{{ $doc->title }}</h1>
 		</header>

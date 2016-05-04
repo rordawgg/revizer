@@ -18,8 +18,9 @@ Route::group(['middleware' => "auth"], function(){
 	
 	Route::post("/doc", "DocsController@store");
 	Route::get("/doc/add", "DocsController@create");
-	Route::get("/doc/{doc}/edit", "DocsController@edit")->middleware("belongs");
-	Route::patch("/doc/{doc}/edit", "DocsController@update");
+	//Future Feature
+	//Route::get("/doc/{doc}/edit", "DocsController@edit")->middleware("belongs");
+	//Route::patch("/doc/{doc}/edit", "DocsController@update");
 	Route::get("/user/me", "ProfileController@show");
 	Route::patch("/user/me", "ProfileController@update");
 	Route::get("/user/me/edit", "ProfileController@edit");
