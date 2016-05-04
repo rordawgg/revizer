@@ -72,7 +72,7 @@ class DocsController extends Controller
 		$doc->fill($request->all());
 		$doc->save();
 
-		return back();
+		return redirect("/doc/" . $doc->id);
 	}
 
 	public function search(Request $request) 
