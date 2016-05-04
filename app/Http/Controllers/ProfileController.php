@@ -6,7 +6,6 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Profile;
 use App\User;
-use App\Doc;
 
 use App\Http\Requests;
 
@@ -20,7 +19,7 @@ class ProfileController extends Controller
             $profile = Auth::user()->profile;
         }
 
-    	$docs = Doc::where("user_id", "=", $profile->user_id)->get();
+        $docs = User::find($profile->user_id)->docs;
     	return view("profiles.show")->withProfile($profile)->withDocs($docs);
     }
 

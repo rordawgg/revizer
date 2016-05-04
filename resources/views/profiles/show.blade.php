@@ -16,11 +16,7 @@
             <h3><a href="{{ action('DocsController@show', $doc->id) }}">{{ $doc->title }}</a></h3>
             <p>{{ $doc->criteria }}</p>
             
-            <ul>
-                <li>Revisions (num)</li>
-                <li>Comments (num)</li>
-                <li>Votes (num)</li>
-            </ul>
+            <h4>Revisions: {{ $doc->revisions()->where("accepted", 0)->count() }}</h4>
             <hr/>
         </article>
     @endforeach

@@ -3,15 +3,18 @@
 @section("title", "Documents")
 
 @section("content")
-@include('partial.search')
-
-@if(count($docs)==0)
-	<h1>No Docs</h1>
-@endif
 
 <div>
 	<a href="{{ action('DocsController@create') }}">ADD</a>
 </div>
+
+@include('partial.search')
+
+<hr>
+
+@if(count($docs)==0)
+	<h1>No Docs</h1>
+@endif
 
 @foreach($docs as $doc)
 	<li>
