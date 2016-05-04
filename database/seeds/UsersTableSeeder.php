@@ -11,14 +11,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        // prior to seeding, remove old table data
+        DB::table("users")->truncate();
+        DB::table("profiles")->truncate();
     	/**
          * Creates a default sample admin user.   
          */
-
-        factory(App\User::class, 1)->create([
+        $u = factory(App\User::class)->create([
                 'email' => 'admin@example.com',
                 'password' => bcrypt('admin')
-            ])->each(function($u){
+            ]);
 
             factory(App\Profile::class)->create([
                 'user_id' => $u->id, 'username' => 'admin',
@@ -27,15 +29,12 @@ class UsersTableSeeder extends Seeder
                 'created_at' => $u->created_at,
                 'updated_at' => $u->updated_at
             ]);
-            factory(App\Doc::class, 5)->create(['user_id' => $u->id]);
-        });
-
         /** 
          * Creates 20 (by default) randomized entries in the Users table.
          * With every pass over a user it creates a new Doc and attaches
          * a random id to the user_id field in the Doc entry. 
          */
-
+        
         $numUsers = 20; 
     	factory(App\User::class, $numUsers)->create()->each(function($u, $numUsers){
             factory(App\Profile::class)->create([
@@ -44,7 +43,6 @@ class UsersTableSeeder extends Seeder
                 'created_at' => $u->created_at,
                 'updated_at' => $u->updated_at
             ]);
-    		factory(App\Doc::class)->create(['user_id' => rand(1, $numUsers)]);
     	});
     }
 }
