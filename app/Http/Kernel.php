@@ -48,5 +48,8 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'belongs' => \App\Http\Middleware\IsUsersDoc::class,
+        'auth_revision' => \App\Http\Middleware\AuthorizeRevision::class,
+        'rev_belongs' => \App\Http\Middleware\RevisionBelongsToDoc::class,
     ];
 }
