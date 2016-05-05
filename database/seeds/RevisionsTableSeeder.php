@@ -32,11 +32,13 @@ class RevisionsTableSeeder extends Seeder
 
         foreach($users as $user):
         	$user->load('profile');
+            $doc = rand(1, count($docs));
 	        factory(App\Revision::class)->create([
 	        	'user_id' => rand(2, count($users)),
-	        	'doc_id' => rand(1, count($docs)),
+	        	'doc_id' => $doc,
 	        	'description' => 'Revision made by User',
-	        	'body' => 'Revised by ' . $user->profile->username
+	        	'body' => 'Revised by ' . $user->profile->username .
+                    ' ' . $docs[$doc - 1]->body
 	        ]);
 	    endforeach;
     }
