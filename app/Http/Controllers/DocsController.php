@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Doc;
 use App\Revision;
+use App\Category;
 use Auth;
 
 class DocsController extends Controller
@@ -76,10 +77,21 @@ class DocsController extends Controller
 	}
 
 	public function search(Request $request) 
-	   {
-	   	
+	{
 		$search = Doc::SearchByKeyword($request->keyword)->get();
-	   return view("docs.search_results")->withSearch($search);
-	
-	   }
+		return view("docs.search_results")->withSearch($search);
+	}
+
+	public function categories()
+	{
+		$categories = Category::all();
+		return view("docs.categories")
+			->withCategories($categories);
+	}
+
+	public function show_category(Category $category)
+	{
+		$category->load('docs');
+		return view("docs.show_category")->withCategory($category);
+	}
 }

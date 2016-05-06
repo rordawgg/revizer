@@ -2,7 +2,7 @@
 	<ul>
 		<li><a href="{{ url("/home") }}">Home</a></li>
 		<li><a href="{{ url("/doc") }}">Documents</a></li>
-		{{--<li><a href="{{ url("/categories") }}">Categories</a></li>--}}
+		<li><a href="{{ url("/categories") }}">Categories</a></li>
 		<li><a href="{{ url("/user/me") }}">Profile</a></li>
 		
 		@if(Auth::guest())

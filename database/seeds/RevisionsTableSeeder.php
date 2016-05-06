@@ -16,9 +16,9 @@ class RevisionsTableSeeder extends Seeder
 
         // Get a count of document to use for range.
         $docs = App\Doc::all();
-
         // Adding Revisions as Admin to random User Docs
         foreach($docs as $doc):
+            $doc->load('user');
 	        factory(App\Revision::class)->create([
 	        	'user_id' => 1,
 	        	'doc_id' => rand(2, count($docs)),
