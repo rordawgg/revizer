@@ -41,11 +41,9 @@ class RevisionsController extends Controller
 
     public function revise(Doc $doc, Revision $revision) 
        {
-       $accepted = Revision::find($revision->id);
-       $accepted->accepted = 1;
-       $accepted->save();
-       $test = Revision::where("doc_id", "=", $revision->doc_id)->where("id", "!=", $revision->id)->delete();
-
+       $revision->accepted = 1;
+       $revision->save();
+       $doc->removeUnaccepted();
 
        return redirect("/doc/$doc->id");
        }

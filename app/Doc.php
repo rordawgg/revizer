@@ -43,4 +43,10 @@ class Doc extends Model
         }
         return $query;
     }
+
+    public function removeUnaccepted()
+    {
+        $this->revisions()->where("accepted", "!=", 1)->where("id", "!=", $this->id)->delete();
+    }
+
 }
