@@ -14,32 +14,37 @@ class RevisionsTableSeeder extends Seeder
         // prior to seeding, remove old table data
         DB::table("revisions")->truncate();
 
+        /**
+         * A reusable anon-function for ensuring that the owner
+         * of the Document is not the same as the owner of 
+         * the Revision.
+         * @var [func]
+         */
+        $diff_user = function($uid, $total, $doc) use (&$diff_user){
+            return ($doc->user_id === $uid ? 
+                $diff_user(rand(1, $total), $total, $doc) : $uid);
+        };
         // Get a count of document to use for range.
         $docs = App\Doc::all();
+        $total = count($docs);
+
         // Adding Revisions as Admin to random User Docs
         foreach($docs as $doc):
             $doc->load('user');
+            $uid = $diff_user($doc->user_id, $total, $doc);
 	        factory(App\Revision::class)->create([
-	        	'user_id' => 1,
-	        	'doc_id' => rand(2, count($docs)),
-	        	'description' => 'Admin Making A Revision',
-	        	'body' => 'Revised by Admin. '. $doc->body
+	        	'user_id' => $uid,
+	        	'doc_id' => $doc->id,
+	        	'description' => function() use($doc, $uid){
+                    return ($uid === 1 ? 'Admin making revision ' :
+                        'User making revision ').$doc->description;
+                },
+	        	'body' => function() use($doc, $uid){
+                    return ($uid === 1 ?
+                        'Revised by Admin. ' : 'Revised by User. '
+                    ).$doc->body;
+                }
 	        ]);
     	endforeach;
-
-        // Get a count of users to use as a range
-        $users = App\User::all();
-
-        foreach($users as $user):
-        	$user->load('profile');
-            $doc = rand(1, count($docs));
-	        factory(App\Revision::class)->create([
-	        	'user_id' => rand(2, count($users)),
-	        	'doc_id' => $doc,
-	        	'description' => 'Revision made by User',
-	        	'body' => 'Revised by ' . $user->profile->username .
-                    ' ' . $docs[$doc - 1]->body
-	        ]);
-	    endforeach;
     }
 }
