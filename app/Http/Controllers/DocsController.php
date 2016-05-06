@@ -70,6 +70,10 @@ class DocsController extends Controller
 			"criteria" => "required"
 		]);
 
+		if ($request->input("new_version") == "true") {
+			$doc->removeUnaccepted();
+		}
+
 		$doc->fill($request->all());
 		$doc->save();
 

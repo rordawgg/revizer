@@ -13,6 +13,14 @@
 			<input name="description" value="{{ $doc->description }}"/>
 			<input name="criteria" value="{{ $doc->criteria }}"/>
 			<textarea name="body">{{ $doc->body }}</textarea>
+			<label for="new-version">
+				Create new version 
+				<input value="true" name="new_version" id="new-version" type="radio">
+			</label>
+			<label for="update-old">
+				Update current version 
+				<input checked="checked" value="false" name="new_version" id="update-old" type="radio">
+			</label>
 			<button	type="submit">Update Doc</button>
 </form>
 
