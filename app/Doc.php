@@ -8,7 +8,7 @@ use App\Revision;
 class Doc extends Model
 {
     protected $fillable = [
-    	"body",
+    	// "body",
     	"title",
     	"description",
     	"criteria"

@@ -50,7 +50,11 @@ class DocsController extends Controller
 		]);
 
 		$user = Auth::user();
-		$doc = new Doc($request->all());
+		$doc = new Doc;
+		$doc->title = $request->input("title");
+		$doc->description = $request->input("description");
+		$doc->criteria = $request->input("criteria");
+		$doc->body = $request->input("body");
 		$user->docs()->save($doc);
 
 		return redirect("/doc/" . $doc->id);
@@ -73,6 +77,11 @@ class DocsController extends Controller
 		if ($request->input("new_version") == "true") {
 			$doc->removeUnaccepted();
 		}
+		$rev = new Revision;
+    	$rev->user_id = $request->user()->id;
+    	$rev->body = $request->input("body");
+    	$rev->accepted = 1;
+    	$doc->revisions()->save($rev);
 
 		$doc->fill($request->all());
 		$doc->save();
