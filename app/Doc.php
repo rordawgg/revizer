@@ -37,7 +37,6 @@ class Doc extends Model
         if ($keyword!='') {
             $query->where(function ($query) use ($keyword) {
                 $query->where("title", "LIKE","%$keyword%")
-                    ->orWhere("body", "LIKE", "%$keyword%")
                     ->orWhere("criteria", "LIKE", "%$keyword%")
                     ->orWhere("description", "LIKE", "%$keyword%");
             });
