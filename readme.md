@@ -5,11 +5,11 @@ A fee based framework for collaborating on documents with subject experts. The f
 ### -Unix Install-
 
 #### Prereq's
-PHP >= 5.5.9
-OpenSSL PHP Extension
-PDO PHP Extension
-Mbstring PHP Extension
-Tokenizer PHP Extension
+* PHP >= 5.5.9
+* OpenSSL PHP Extension
+* PDO PHP Extension
+* Mbstring PHP Extension
+* Tokenizer PHP Extension
 
 1. Navigate to your projects directory.
 2. Clone Repository `git clone https://ace2323@bitbucket.org/revizr/revizr.git`
