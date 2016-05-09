@@ -89,12 +89,6 @@ class DocsController extends Controller
 		return redirect("/doc/" . $doc->id);
 	}
 
-	public function search(Request $request) 
-	{
-		$search = Doc::SearchByKeyword($request->keyword)->get();
-		return view("docs.search_results")->withSearch($search);
-	}
-
 	public function categories()
 	{
 		$categories = Category::all();

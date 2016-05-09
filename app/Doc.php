@@ -32,18 +32,6 @@ class Doc extends Model
                                             ->first();
     }     
 
-    public function scopeSearchByKeyword($query, $keyword)
-    {
-        if ($keyword!='') {
-            $query->where(function ($query) use ($keyword) {
-                $query->where("title", "LIKE","%$keyword%")
-                    ->orWhere("criteria", "LIKE", "%$keyword%")
-                    ->orWhere("description", "LIKE", "%$keyword%");
-            });
-        }
-        return $query;
-    }
-
     public function removeUnaccepted()
     {
         $this->revisions()->where("accepted", "!=", 1)->where("id", "!=", $this->id)->delete();
