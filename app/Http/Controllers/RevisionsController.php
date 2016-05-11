@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Helpers\Diff;
 use App\Http\Requests;
 use App\Doc;
 use App\Revision;
@@ -21,7 +21,8 @@ class RevisionsController extends Controller
 
     public function show(Doc $doc, Revision $revision)
     {
-    	return view("revisions.show")->withRevision($revision)->withDoc($doc);
+      $diff = (new Diff($doc->body, $revision->body))->htmlDiff();
+    	return view("revisions.show")->withRevision($revision)->withDoc($doc)->withDiff($diff);
     }
 
     public function store(Request $request, Doc $doc)

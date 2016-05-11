@@ -16,6 +16,7 @@
 
 	<p>{{ $revision->body }}</p>
 
-
+<h3>Differences</h3>
+{!! $diff !!}
 
 @stop
