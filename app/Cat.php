@@ -4,12 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Cat extends Model
 {
-    protected $fillable = ["name"];
-
     public function docs()
     {
-    	return $this->hasMany("App\Doc");
+    	return $this->hasMany('App/Doc');
     }
 }

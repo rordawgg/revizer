@@ -40,5 +40,5 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 Route::get("/user/{username}", "ProfileController@show");
 Route::get("/doc/{doc}/revision/{revision}", "RevisionsController@show")->middleware("rev_belongs");
-Route::get("/categories/{category}", "DocsController@show_category");
-Route::get("/categories", "DocsController@categories");
+Route::get("/categories/{cat}", "CatsController@show");
+Route::get("/categories", "CatsController@index");

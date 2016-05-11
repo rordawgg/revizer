@@ -88,17 +88,4 @@ class DocsController extends Controller
 
 		return redirect("/doc/" . $doc->id);
 	}
-
-	public function categories()
-	{
-		$categories = Category::all();
-		return view("docs.categories")
-			->withCategories($categories);
-	}
-
-	public function show_category(Category $category)
-	{
-		$category->load('docs');
-		return view("docs.show_category")->withCategory($category);
-	}
 }

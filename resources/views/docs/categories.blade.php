@@ -5,13 +5,13 @@
 @section("content")
 <h2>Categories</h2>
 <hr/>
-@if(count($categories)==0)
+@if(count($cats)==0)
 	<h1>No Categories</h1>
 @endif
 
-@foreach($categories as $category)
+@foreach($cats as $cat)
 	<li>
-		<a href="{{ action('DocsController@show_category', $category->id) }}">{{ $category->name }}</a>
+		<a href="{{ url("category/" . $cat->id ) }}">{{ $cat->name }}</a>
 	</li>
 @endforeach
 
