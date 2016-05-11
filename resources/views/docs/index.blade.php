@@ -11,7 +11,7 @@
 @include('partial.search')
 
 <hr>
-<h1>{{ $title }}</h1>
+<h1>{{ ucfirst($title) }}</h1>
 @if(count($docs)==0)
 	<h1>No Docs</h1>
 @endif

@@ -12,7 +12,7 @@
 			Description:<input name="description"/>
 			Category:<select name="category">
 				@foreach($cats as $cat)
-					<option value="{{ $cat->id }}">{{ $cat->name }}</option>
+					<option value="{{ $cat->id }}">{{ ucfirst($cat->name) }}</option>
 				@endforeach
 			</select>
 			Criteria:<input name="criteria"/>

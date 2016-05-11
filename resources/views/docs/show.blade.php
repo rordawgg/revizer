@@ -16,7 +16,7 @@
 
 		<div class="category">
 			<h2>Category</h2>
-			<p>{{ $doc->cat->name }}</p>
+			<p>{{ ucfirst($doc->cat->name) }}</p>
 		</div>
 
 		<div class="description">

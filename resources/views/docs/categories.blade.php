@@ -11,7 +11,7 @@
 
 @foreach($cats as $cat)
 	<li>
-		<a href="{{ url("categories/" . strtolower($cat->name) ) }}">{{ $cat->name }}</a>
+		<a href="{{ url("categories/" . $cat->name ) }}">{{ ucfirst($cat->name) }}</a>
 	</li>
 @endforeach
 
