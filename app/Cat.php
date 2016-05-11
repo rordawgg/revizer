@@ -8,6 +8,6 @@ class Cat extends Model
 {
     public function docs()
     {
-    	return $this->hasMany('App/Doc');
+    	return $this->hasMany('App\Doc');
     }
 }

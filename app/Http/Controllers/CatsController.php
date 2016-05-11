@@ -15,8 +15,9 @@ class CatsController extends Controller
     	return view("docs.categories")->withCats($cats);
     }
 
-    public function show(Cat $cat)
+    public function show($cat)
     {
+    	$cat = Cat::where("name", "=", $cat)->first();
     	return view('docs.index')->withDocs($cat->docs);
     }
 }
