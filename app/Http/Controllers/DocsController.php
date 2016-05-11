@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Doc;
 use App\Revision;
-use App\Category;
+use App\Cat;
 use Auth;
 
 class DocsController extends Controller
@@ -17,7 +17,7 @@ class DocsController extends Controller
 	{
 		$docs = Doc::all();
 
-		return view("docs.index")->withDocs($docs);
+		return view("docs.index")->withDocs($docs)->withTitle("All Documents");
 	}
 
 	public function show(Doc $doc)
@@ -37,7 +37,8 @@ class DocsController extends Controller
 
 	public function create()
 	{
-		return view("docs.create");
+		$cats = Cat::all();
+		return view("docs.create")->withCats($cats);
 	}
 
 	public function store(Request $request)
@@ -46,13 +47,15 @@ class DocsController extends Controller
 			"title" => "required",
 			"description" => "required",
 			"criteria" => "required",
-			"body" => "required"
+			"body" => "required",
+			"category" => "exists:cats,id"
 		]);
 
 		$user = Auth::user();
 		$doc = new Doc;
 		$doc->title = $request->input("title");
 		$doc->description = $request->input("description");
+		$doc->cat_id = $request->input("category");
 		$doc->criteria = $request->input("criteria");
 		$doc->body = $request->input("body");
 		$user->docs()->save($doc);

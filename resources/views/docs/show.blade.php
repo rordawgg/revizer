@@ -14,6 +14,11 @@
 			<h1>{{ $doc->title }}</h1>
 		</header>
 
+		<div class="category">
+			<h2>Category</h2>
+			<p>{{ $doc->cat->name }}</p>
+		</div>
+
 		<div class="description">
 			<h2>Description</h2>
 			<p>{{ $doc->description }}</p>

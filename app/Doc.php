@@ -37,7 +37,7 @@ class Doc extends Model
         $this->revisions()->where("accepted", "!=", 1)->where("id", "!=", $this->id)->delete();
     }
 
-    public function category()
+    public function cat()
     {
         return $this->belongsTo("App\Cat");
     }

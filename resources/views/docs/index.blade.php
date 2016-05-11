@@ -1,6 +1,6 @@
 @extends("layout")
 
-@section("title", "Documents")
+@section("title", $title)
 
 @section("content")
 
@@ -11,7 +11,7 @@
 @include('partial.search')
 
 <hr>
-
+<h1>{{ $title }}</h1>
 @if(count($docs)==0)
 	<h1>No Docs</h1>
 @endif
