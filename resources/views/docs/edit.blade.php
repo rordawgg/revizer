@@ -5,7 +5,7 @@
 @section("content")
 
 <form method="post" action="{{ action('DocsController@edit', $doc->id) }}">
-   
+   			
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="hidden" name="_method" value="patch">
 		
@@ -22,6 +22,12 @@
 				<input checked="checked" value="false" name="new_version" id="update-old" type="radio">
 			</label>
 			<button	type="submit">Update Doc</button>
+</form>
+
+<form action={{ url("/doc/" . $doc->id . "/delete") }} method="post">
+	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	<input type="hidden" name="_method" value="delete">
+	<button type="submit">DELETE</button>
 </form>
 
 @stop

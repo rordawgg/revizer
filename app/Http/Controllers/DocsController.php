@@ -91,4 +91,11 @@ class DocsController extends Controller
 
 		return redirect("/doc/" . $doc->id);
 	}
+
+	public function delete(Doc $doc)
+	{
+		$doc->revisions()->delete();
+		$doc->delete();
+		return redirect("/doc");
+	}
 }
