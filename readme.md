@@ -31,23 +31,23 @@ A fee based framework for collaborating on documents with subject experts. The f
 >> Examples of these environments are: [WAMPSERVER](http://www.wampserver.com/en/) or [MAMP](https://www.mamp.info/en/downloads/).
 ​
 #### Install
-​
+
 1. [Get Composer](https://github.com/composer/windows-setup#About) and follow the install instructions.
 
 2. Run `Composer-Setup.exe`
-​
- > NOTE: After installation of Composer completes, you may have to restart any terminals or command prompt windows open because PATH variables will be updated.
-​
+
+ **NOTE:** After installation of Composer completes, you may have to restart any terminals or command prompt windows open because PATH variables will be updated.
+
 3. Download and unzip repo.
-​
- > Without Git Installed
+
+ **Without Git Installed**
 
  [Download](https://bitbucket.org/revizr/revizr/downloads) zip file, unzip contents to desired location.
 
- > With Git Installed
+ **With Git Installed**
 
  `git clone https://ace2323@bitbucket.org/revizr/revizr.git`
-​
+
 4. Change to the unzipped directory
 5. Install dependencies: `composer install`
 6. Copy or rename `.env.example` to a file named `.env`
