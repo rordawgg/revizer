@@ -41,11 +41,17 @@ class RevisionsController extends Controller
     }
 
     public function revise(Doc $doc, Revision $revision) 
-       {
-       $revision->accepted = 1;
-       $revision->save();
-       $doc->removeUnaccepted();
+    {
+      $revision->accepted = 1;
+      $revision->save();
+      $doc->removeUnaccepted();
 
-       return redirect("/doc/$doc->id");
-       }
+      return redirect("/doc/$doc->id");
+    }
+
+    public function delete(Doc $doc, Revision $revision) 
+      {
+        $revision->delete();
+        return redirect("/doc/$doc->id");
+      }
 }

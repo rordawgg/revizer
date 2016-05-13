@@ -27,6 +27,7 @@ Route::group(['middleware' => "auth"], function(){
 	Route::post("/doc/{doc}/revision/create", "RevisionsController@store")->middleware("auth_revision");
 	Route::patch("/doc/{doc}/revision/{revision}", "RevisionsController@revise")->middleware("rev_belongs");
 	Route::delete("/doc/{doc}/delete", "DocsController@delete")->middleware("belongs");
+	Route::delete("/doc/{doc}/revision/{revision}/delete", "RevisionsController@delete")->middleware("rev_belongs");
 });
 
 
