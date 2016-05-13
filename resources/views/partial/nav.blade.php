@@ -6,7 +6,7 @@
 		<li>
 			<ul>
 				@foreach($cats as $cat)
-					<li><a href="{{ url("/categories/") }}">{{ ucfirst($cat->name) }}</a></li>
+					<li><a href="{{ url("/categories/" . $cat->name) }}">{{ ucfirst($cat->name) }}</a></li>
 				@endforeach
 			</ul>
 		</li>
