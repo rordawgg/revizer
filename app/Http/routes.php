@@ -15,7 +15,6 @@
 
 
 Route::group(['middleware' => "auth"], function(){
-	
 	Route::post("/doc", "DocsController@store");
 	Route::get("/doc/add", "DocsController@create");
 	Route::get("/doc/{doc}/edit", "DocsController@edit")->middleware("belongs");
@@ -35,12 +34,13 @@ Route::get("/", function () {
 	return view("welcome");
 });
 
-Route::get("/doc", "DocsController@index");
-Route::get("/search", "QueryController@search");
-Route::get("/doc/{doc}", "DocsController@show");
 Route::auth();
-Route::get('/home', 'HomeController@index');
-Route::get("/user/{username}", "ProfileController@show");
+Route::get("/doc", "DocsController@index");
+Route::get("/doc/{doc}", "DocsController@show");
 Route::get("/doc/{doc}/revision/{revision}", "RevisionsController@show")->middleware("rev_belongs");
 Route::get("/categories/{cat}", "CatsController@show");
 Route::get("/categories", "CatsController@index");
+Route::get("/home", "HomeController@index");
+Route::get("/user/{username}", "ProfileController@show");
+Route::get("/search", "QueryController@search");
+
