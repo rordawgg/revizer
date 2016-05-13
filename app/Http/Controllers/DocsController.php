@@ -16,21 +16,19 @@ class DocsController extends Controller
 	public function index()
 	{
 		$docs = Doc::all();
-
 		return view("docs.index")->withDocs($docs)->withTitle("All Documents");
 	}
 
 	public function show(Doc $doc)
 	{
 		$revision = $doc->hasAcceptedRevision();
-
 		if ($revision !== null) {
             $doc->body = $revision->body;
         }
-        
+
 		$revisions = Revision::where("doc_id", "=", $doc->id)
-											->where("accepted", "=", 0)
-											->get();
+								->where("accepted", "=", 0)
+								->get();
 
 		return view("docs.show")->withDoc($doc)->withRevisions($revisions);
 	}
