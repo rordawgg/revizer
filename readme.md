@@ -28,7 +28,7 @@ A fee based framework for collaborating on documents with subject experts. The f
 > NOTE: Composer Installer needs PHP installed before running the Composer Install. The Composer Installer will be looking for `php.exe` and setting environmental variables during the install process.
 >> The easiest way to accomplish this is to install a web development environment.
 
->> Examples of these environments are: [WAMPSERVER](http://www.wampserver.com/en/) or [MAMP](https://www.mamp.info/en/downloads/).
+>> Examples of these environments are: [XAMPP](https://www.apachefriends.org/download.html) or [WAMP](http://www.wampserver.com/en/) or [MAMP](https://www.mamp.info/en/downloads/).
 ​
 #### Install
 
