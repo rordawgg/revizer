@@ -11,7 +11,7 @@
 
 @foreach($category->docs as $doc)
 	<li>
-		<a href="{{ action('DocsController@show', $doc->id) }}">{{ $doc->title }}</a>
+		<a href="{{ url('/doc/', [$doc->id]) }}">{{ $doc->title }}</a>
 	</li>
 @endforeach
 

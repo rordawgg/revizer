@@ -5,7 +5,7 @@
 @section("content")
 
 <div>
-	<a href="{{ action('DocsController@create') }}">ADD</a>
+	<a href="{{ url('/doc/add') }}">ADD</a>
 </div>
 
 @include('partial.search')
@@ -18,7 +18,7 @@
 
 @foreach($docs as $doc)
 	<li>
-		<a href="{{ action('DocsController@show', $doc->id) }}">{{ $doc->title }}</a>
+		<a href="{{ url('/doc', [$doc->id]) }}">{{ $doc->title }}</a>
 	</li>
 @endforeach
 

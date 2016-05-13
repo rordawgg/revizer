@@ -4,7 +4,7 @@
 
 @section("content")
 
-<form method="post" action="/doc">
+<form method="post" action="{{ url('/doc') }}">
    
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		

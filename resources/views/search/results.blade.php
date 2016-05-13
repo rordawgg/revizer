@@ -9,7 +9,7 @@
 				<h2>Documents</h2>
 
 				@foreach($docs as $doc)
-		            <h3><a href="/doc/{{ $doc->id }}">{{ $doc->title }}</a></h3>
+		            <h3><a href="{{ url('/doc/' . $doc->id) }}">{{ $doc->title }}</a></h3>
 		            <p>{{ $doc->description }}</p>
 				@endforeach
 			</section>
@@ -20,7 +20,7 @@
 				<h2>Revisions</h2>
 
 				@foreach($revisions as $revision)
-		            <p><a href="/doc/{{ $revision->doc_id }}/revision/{{ $revision->id }}">{{ $revision->description }}</a></p>              
+		            <p><a href="{{ url('/doc/' . $revision->doc_id . '/revision/' . $revision->id) }}">{{ $revision->description }}</a></p>              
 				@endforeach
 			</section>
 
@@ -30,7 +30,7 @@
 				<h2>Profiles</h2>
 
 				@foreach($profiles as $profile)
-		            <p><a href="/user/{{ $profile->username }}">{{ $profile->username }}</a></p>              
+		            <p><a href="{{ url('/user/' . $profile->username) }}">{{ $profile->username }}</a></p>              
 				@endforeach
 			</section>
 

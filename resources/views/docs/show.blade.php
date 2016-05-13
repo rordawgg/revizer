@@ -7,7 +7,7 @@
 	<div id="doc-cont">
 		@if(!empty(Auth::user()->id) && ($doc->user_id === Auth::user()->id))
 		    <div>
-		        <a href="{{ action('DocsController@edit', $doc->id) }}">Edit</a>
+		        <a href="{{ url('/doc/' . $doc->id . '/edit') }}">Edit</a>
 		    </div>
 		@endif
 		<header>
@@ -37,7 +37,7 @@
 	
 	@unless(request()->user() && (request()->user()->id === $doc->user_id))
 		<div id="rev-cont">
-			<a href="{{ action('RevisionsController@create', ['doc' => $doc->id]) }}">REVISE</a>
+			<a href="{{ url('/doc/' . $doc->id . '/revision/create') }}">REVISE</a>
 		</div>
 	@endif
 
