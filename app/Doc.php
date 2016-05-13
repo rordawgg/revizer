@@ -3,12 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Revision;
 
 class Doc extends Model
 {
     protected $fillable = [
-    	// "body",
     	"title",
     	"description",
     	"criteria"
@@ -26,7 +24,7 @@ class Doc extends Model
 
     public function hasAcceptedRevision()
     {
-        return Revision::where("doc_id", "=", $this->id)
+        return $this->revisions()->where("doc_id", "=", $this->id)
                                             ->where("accepted", "=", 1)
                                             ->orderBy("created_at", "DESC")
                                             ->first();
