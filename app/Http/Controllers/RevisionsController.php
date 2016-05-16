@@ -21,6 +21,11 @@ class RevisionsController extends Controller
 
     public function show(Doc $doc, Revision $revision)
     {
+      $rev = $doc->hasAcceptedRevision();
+      if ($revision !== null) {
+          $doc->body = $rev->body;
+      }
+
       $diff = (new Diff($doc->body, $revision->body))->htmlDiff();
     	return view("revisions.show")->withRevision($revision)->withDoc($doc)->withDiff($diff);
     }
