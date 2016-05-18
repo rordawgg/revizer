@@ -22,7 +22,7 @@ class RevisionsController extends Controller
     public function show(Doc $doc, Revision $revision)
     {
       $rev = $doc->hasAcceptedRevision();
-      if ($revision !== null) {
+      if ($rev !== null) {
           $doc->body = $rev->body;
       }
 
