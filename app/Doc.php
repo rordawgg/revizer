@@ -3,12 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Revision;
 
 class Doc extends Model
 {
     protected $fillable = [
-    	"body",
     	"title",
     	"description",
     	"criteria"
@@ -26,22 +24,19 @@ class Doc extends Model
 
     public function hasAcceptedRevision()
     {
-        return Revision::where("doc_id", "=", $this->id)
+        return $this->revisions()->where("doc_id", "=", $this->id)
                                             ->where("accepted", "=", 1)
                                             ->orderBy("created_at", "DESC")
                                             ->first();
     }     
 
-    public function scopeSearchByKeyword($query, $keyword)
+    public function removeUnaccepted()
     {
-        if ($keyword!='') {
-            $query->where(function ($query) use ($keyword) {
-                $query->where("title", "LIKE","%$keyword%")
-                    ->orWhere("body", "LIKE", "%$keyword%")
-                    ->orWhere("criteria", "LIKE", "%$keyword%")
-                    ->orWhere("description", "LIKE", "%$keyword%");
-            });
-        }
-        return $query;
+        $this->revisions()->where("accepted", "!=", 1)->where("id", "!=", $this->id)->delete();
+    }
+
+    public function cat()
+    {
+        return $this->belongsTo("App\Cat");
     }
 }

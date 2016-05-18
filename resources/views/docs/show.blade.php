@@ -5,15 +5,19 @@
 @section("content")
 
 	<div id="doc-cont">
-	{{--Future Feature--}}
-		{{--@if(!empty(Auth::user()->id) && ($doc->user_id === Auth::user()->id))
+		@if(!empty(Auth::user()->id) && ($doc->user_id === Auth::user()->id))
 		    <div>
-		        <a href="{{ action('DocsController@edit', $doc->id) }}">Edit</a>
+		        <a href="{{ url('/doc/' . $doc->id . '/edit') }}">Edit</a>
 		    </div>
-		@endif--}}
+		@endif
 		<header>
 			<h1>{{ $doc->title }}</h1>
 		</header>
+
+		<div class="category">
+			<h2>Category</h2>
+			<p>{{ ucfirst($doc->cat->name) }}</p>
+		</div>
 
 		<div class="description">
 			<h2>Description</h2>
@@ -33,7 +37,7 @@
 	
 	@unless(request()->user() && (request()->user()->id === $doc->user_id))
 		<div id="rev-cont">
-			<a href="{{ action('RevisionsController@create', ['doc' => $doc->id]) }}">REVISE</a>
+			<a href="{{ url('/doc/' . $doc->id . '/revision/create') }}">REVISE</a>
 		</div>
 	@endif
 

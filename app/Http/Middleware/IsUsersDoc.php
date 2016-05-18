@@ -17,7 +17,7 @@ class IsUsersDoc
     public function handle($request, Closure $next)
     {
         $doc = $request->doc;
-
+        
         if (Auth::user()->id !== $doc->user_id) {
             return redirect("/doc/{$doc->id}");
         }

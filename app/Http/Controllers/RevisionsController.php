@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Helpers\Diff;
 use App\Http\Requests;
 use App\Doc;
 use App\Revision;
@@ -21,7 +21,13 @@ class RevisionsController extends Controller
 
     public function show(Doc $doc, Revision $revision)
     {
-    	return view("revisions.show")->withRevision($revision)->withDoc($doc);
+      $rev = $doc->hasAcceptedRevision();
+      if ($rev !== null) {
+          $doc->body = $rev->body;
+      }
+
+      $diff = (new Diff($doc->body, $revision->body))->htmlDiff();
+    	return view("revisions.show")->withRevision($revision)->withDoc($doc)->withDiff($diff);
     }
 
     public function store(Request $request, Doc $doc)
@@ -40,13 +46,17 @@ class RevisionsController extends Controller
     }
 
     public function revise(Doc $doc, Revision $revision) 
-       {
-       $accepted = Revision::find($revision->id);
-       $accepted->accepted = 1;
-       $accepted->save();
-       $test = Revision::where("doc_id", "=", $revision->doc_id)->where("id", "!=", $revision->id)->delete();
+    {
+      $revision->accepted = 1;
+      $revision->save();
+      $doc->removeUnaccepted();
 
+      return redirect("/doc/$doc->id");
+    }
 
-       return redirect("/doc/$doc->id");
-       }
+    public function delete(Doc $doc, Revision $revision) 
+      {
+        $revision->delete();
+        return redirect("/doc/$doc->id");
+      }
 }

@@ -8,7 +8,7 @@ class Revision extends Model
 {
     protected $fillable = [
     	"body",
-    	"description",
+    	"description"
     ];
 
     public function doc()

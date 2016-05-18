@@ -1,10 +1,10 @@
 @extends('layout')
 
-@section("title", "Edit {{ $user->profile->username }} Profile")
+@section("title", "Edit " . $user->profile->username . " Profile")
 
 @section("content")
 
-<form method="post" action="{{ action('ProfileController@update') }}">
+<form method="post" action="{{ url('/user/me') }}">
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<input type="hidden" name="_method" value="patch">
 

@@ -44,3 +44,13 @@ $factory->define(App\Doc::class, function (Faker\Generator $faker){
         
     ];
 });
+$factory->define(App\Revision::class, function (Faker\Generator $faker){
+    return [
+        'user_id' => $faker->randomDigitNotNull,
+        'description' => $faker->realText(150),
+        'body' => $faker->paragraph(8),
+        'created_at' => $faker->dateTimeBetween('-10 months', '-3 months'),
+        'updated_at' => $faker->dateTimeBetween('-2 months', 'now'),
+        
+    ];
+});
