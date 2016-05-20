@@ -13,7 +13,10 @@
 
 
 
-
+/**
+ * Middleware group adds authentication security. 
+ *	Checks if user is logged in to view listed routes.
+ */
 Route::group(['middleware' => "auth"], function(){
 	Route::post("/doc", "DocsController@store");
 	Route::get("/doc/add", "DocsController@create");

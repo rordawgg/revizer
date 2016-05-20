@@ -12,7 +12,10 @@ class Profile extends Model
 		"last_name",
 		"avatar"
 	];
-	
+
+	/**
+	 * @return current user.
+	 */
     public function user()
     {
     	return $this->hasOne("App\User");

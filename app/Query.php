@@ -14,6 +14,9 @@ class Query extends Model
 		$this->keyword = $keyword;
 	}
 
+    /**
+     *  Search each model and fields with keyword.
+     */
     public function searchByKeyword($model, $fields)
     {
     	foreach ($fields as $field) {

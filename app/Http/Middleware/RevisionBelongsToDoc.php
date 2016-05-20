@@ -8,7 +8,7 @@ use App\Revision;
 class RevisionBelongsToDoc
 {
     /**
-     * Handle an incoming request.
+     * Check of revision is related to the document
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

@@ -24,11 +24,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * @return Doc's of the current User.
+     */
     public function docs()
     {
         return $this->hasMany("App\Doc");
     }
 
+    /**
+     * @return Profile of the current User.
+     */
     public function profile()
     {
         return $this->hasOne("App\Profile");

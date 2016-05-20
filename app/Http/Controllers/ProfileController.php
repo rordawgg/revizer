@@ -11,6 +11,10 @@ use App\Http\Requests;
 
 class ProfileController extends Controller
 {
+    /**
+     * Get a selected users profile
+     * @return profile view with user docs
+     */
     public function show($username = null)
     {
         if (isset($username)) {
@@ -24,7 +28,9 @@ class ProfileController extends Controller
                     ->docs;
     	return view("profiles.show")->withProfile($profile)->withDocs($docs);
     }
-
+    /**
+     * Modify the current user profile information
+     */
     public function edit()
     {
     	$user = Auth::user()
@@ -32,6 +38,10 @@ class ProfileController extends Controller
     	return view("profiles.edit")->withUser($user);
     }
 
+    /**
+     * Validate user form input and update.
+     * Update the current user profile
+     */
     public function update(Request $request)
     {
         $this->validate($request, [

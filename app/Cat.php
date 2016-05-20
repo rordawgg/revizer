@@ -8,6 +8,9 @@ class Cat extends Model
 {
 	protected $fillable = ["name"];
 	
+	/**
+	 * Get all docs on the current category
+	 */
     public function docs()
     {
     	return $this->hasMany("App\Doc");

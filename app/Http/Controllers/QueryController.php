@@ -10,10 +10,12 @@ use App\Query;
 use App\Revision;
 use App\Doc;
 use App\Profile;
-//use App\Catagory;
 
 class QueryController extends Controller
 {
+    /**
+     * Given keyword, queries Models(Doc, Revision, Profile) and returns matching results.
+     */
     public function search(Request $request)
     {
     	$query = new Query($request->input("keyword"));

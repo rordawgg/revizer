@@ -8,7 +8,7 @@ use App\Doc;
 class AuthorizeRevision
 {
     /**
-     * Handle an incoming request.
+     * Restrict owner from revising own document.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

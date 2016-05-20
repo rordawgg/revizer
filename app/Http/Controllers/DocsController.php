@@ -13,12 +13,19 @@ use Auth;
 class DocsController extends Controller
 {
 
+	/**
+	 * Get all Documents and return them to index page.
+	 */
 	public function index()
 	{
 		$docs = Doc::all();
 		return view("docs.index")->withDocs($docs)->withTitle("All Documents");
 	}
 
+	/**
+	 * Get specific document by ID, and return page "docs/show" with actitive revision(if applicable),
+	 *	and current revisions.
+	 */
 	public function show(Doc $doc)
 	{
 		$revision = $doc->hasAcceptedRevision();
@@ -32,13 +39,18 @@ class DocsController extends Controller
 
 		return view("docs.show")->withDoc($doc)->withRevisions($revisions);
 	}
-
+	/**
+	 * Return form "docs/create" with category current fields.
+	 */
 	public function create()
 	{
 		$cats = Cat::all();
 		return view("docs.create")->withCats($cats);
 	}
 
+	/**
+	 * Saves submitted Document
+	 */
 	public function store(Request $request)
 	{
 		$this->validate($request, [
@@ -61,11 +73,17 @@ class DocsController extends Controller
 		return redirect("/doc/" . $doc->id);
 	}
 
+	/**
+	 * Returns page "docs/edit"
+	 */
 	public function edit(Doc $doc)
 	{
 		return view("docs.edit")->withDoc($doc);
 	}
 
+	/**
+	 * Update modified changes in the Document from the "doc/edit" page
+	 */
 	public function update(Request $request, Doc $doc)
 	{
 		$this->validate($request, [
@@ -90,6 +108,9 @@ class DocsController extends Controller
 		return redirect("/doc/" . $doc->id);
 	}
 
+	/**
+	 * Remove selected Document
+	 */
 	public function delete(Doc $doc)
 	{
 		$doc->revisions()->delete();
