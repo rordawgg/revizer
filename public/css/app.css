@@ -1,0 +1,40 @@
+body {
+  background-color: #f0f0f0;
+  color: #505050;
+  font-size: 16px; }
+
+nav #logo-cont {
+  padding: 0 10px;
+  height: 150px; }
+  nav #logo-cont span, nav #logo-cont .search-btn {
+    line-height: 150px; }
+  nav #logo-cont span {
+    font-size: 3em; }
+
+nav ul {
+  list-style: none;
+  background-color: #FFEB3B;
+  text-align: center;
+  position: relative;
+  z-index: 1005; }
+  nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+    padding: 10px 0;
+    position: relative; }
+    nav ul li a {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #505050; }
+    nav ul li.dropdown {
+      position: relative; }
+    nav ul li ul.dropdown-content {
+      display: none;
+      position: absolute;
+      top: 25px;
+      left: -10px;
+      margin-left: 0; }
+    nav ul li.dropdown:hover > .dropdown-content {
+      display: block; }
+
+/*# sourceMappingURL=app.css.map */

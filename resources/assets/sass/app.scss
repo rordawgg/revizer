@@ -1,0 +1,91 @@
+$primary: rgb(240, 240, 240);
+$secondary: #FFEB3B;
+$fontColor: rgb(80, 80, 80);
+
+// @mixin inline-block-lr($container,$left,$right){
+//     #{$container}{        
+//         text-align: justify; 
+
+//         &:after{
+//             content: '';
+//             display: inline-block;
+//             width: 100%;
+//             height: 0;
+//             font-size:0;
+//             line-height:0;
+//         }
+//     }
+
+//     #{$left} {
+//         display: inline-block;
+//         vertical-align: middle; 
+//     }
+
+//     #{$right} {
+//         display: inline-block;
+//         vertical-align: middle; 
+//     }
+// }
+
+body {
+	background-color: $primary;
+	color: $fontColor;
+	font-size: 16px;
+}
+
+nav {
+	#logo-cont {
+		padding: 0 10px;
+		height: 150px;
+
+		span, .search-btn {
+			line-height: 150px;
+		}
+
+		span {
+			font-size: 3em;
+		}
+
+		a {
+		}
+	}
+
+	ul {
+		list-style: none;
+		background-color: $secondary;
+		text-align: center;
+		position: relative;
+		z-index: 1005;
+
+		li {
+			display: inline-block;
+			margin: 0 20px;
+			padding: 10px 0;
+			position: relative;
+
+			a {
+				text-decoration: none;
+				text-transform: uppercase;
+				color: $fontColor;
+			}
+
+			&.dropdown {
+				position: relative;
+			}
+
+			& ul.dropdown-content {
+				display: none;
+				position: absolute;
+				top: 25px;
+				left: -10px;
+				margin-left: 0;
+			}
+
+			&.dropdown:hover > .dropdown-content {
+				display: block;
+			}
+		}
+	}
+}
+
+//@include inline-block-lr(#logo-cont, span, #search-btn-cont);
