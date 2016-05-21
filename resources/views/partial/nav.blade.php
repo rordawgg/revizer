@@ -2,7 +2,7 @@
 	<div id="logo-cont">
 		<span>revizr</span>
 		<a href="" class="search-btn u-pull-right">
-			{{--<img src={{ asset("imgs/icons/search.svg") }} alt="">--}}
+			<img src={{ asset("img/icons/search.svg") }} alt="">
 		</a>
 	</div>
 

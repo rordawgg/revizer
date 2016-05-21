@@ -2,31 +2,6 @@ $primary: rgb(240, 240, 240);
 $secondary: #FFEB3B;
 $fontColor: rgb(80, 80, 80);
 
-// @mixin inline-block-lr($container,$left,$right){
-//     #{$container}{        
-//         text-align: justify; 
-
-//         &:after{
-//             content: '';
-//             display: inline-block;
-//             width: 100%;
-//             height: 0;
-//             font-size:0;
-//             line-height:0;
-//         }
-//     }
-
-//     #{$left} {
-//         display: inline-block;
-//         vertical-align: middle; 
-//     }
-
-//     #{$right} {
-//         display: inline-block;
-//         vertical-align: middle; 
-//     }
-// }
-
 body {
 	background-color: $primary;
 	color: $fontColor;
@@ -40,6 +15,7 @@ nav {
 
 		span, .search-btn {
 			line-height: 150px;
+			vertical-align: bottom;
 		}
 
 		span {
