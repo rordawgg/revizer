@@ -43,7 +43,8 @@ nav#bg-nav ul {
 
 nav#sm-nav {
   position: fixed;
-  right: 30px; }
+  right: 30px;
+  top: 30px; }
   nav#sm-nav ul li {
     background-color: #FFEB3B;
     width: 60px;
@@ -51,9 +52,9 @@ nav#sm-nav {
     text-align: center;
     border-radius: 50%;
     transition: 300ms; }
-    nav#sm-nav ul li:hover {
+    nav#sm-nav ul li#nav-menu-cont:hover {
       box-shadow: inset 0px 0px 0px 26.5px #f0f0f0; }
-      nav#sm-nav ul li:hover a > div, nav#sm-nav ul li:hover #nav-menu > div {
+      nav#sm-nav ul li#nav-menu-cont:hover a > div, nav#sm-nav ul li#nav-menu-cont:hover #nav-menu > div {
         background-color: #FFEB3B;
         box-shadow: 0px 15px 0px #FFEB3B, 0px -15px 0px #FFEB3B; }
     nav#sm-nav ul li a {
@@ -61,7 +62,7 @@ nav#sm-nav {
       position: relative;
       width: 100%;
       height: 100%; }
-      nav#sm-nav ul li a#nav-menu div {
+      nav#sm-nav ul li a#nav-menu-btn div {
         position: relative;
         top: 27px;
         margin: auto;
@@ -70,5 +71,16 @@ nav#sm-nav {
         background-color: #505050;
         box-shadow: 0px 15px 0px #505050, 0px -15px 0px #505050;
         border-radius: 50%; }
+      nav#sm-nav ul li a#search-menu-btn {
+        position: relative;
+        top: 12px; }
+      nav#sm-nav ul li a#grav-menu-btn div {
+        position: relative;
+        width: 100%;
+        height: 100%; }
+        nav#sm-nav ul li a#grav-menu-btn div img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%; }
 
 /*# sourceMappingURL=app.css.map */
