@@ -6,7 +6,7 @@
     <section>
     <h1>My Documents</h1>
     <hr/>
-    @foreach($user->docs as $doc)
+    @foreach($docs as $doc)
         <article>
             
             <h3><a href="{{ url('/doc', [$doc->id]) }}">{{ $doc->title }}</a></h3>
@@ -16,4 +16,5 @@
         </article>
     @endforeach
     </section>
-@endsection
+    {!! $docs->render() !!}
+@stop

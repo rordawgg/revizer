@@ -18,7 +18,7 @@ class DocsController extends Controller
 	 */
 	public function index()
 	{
-		$docs = Doc::all();
+		$docs = Doc::orderBy('updated_at', 'desc')->paginate(15);
 		return view("docs.index")->withDocs($docs)->withTitle("All Documents");
 	}
 

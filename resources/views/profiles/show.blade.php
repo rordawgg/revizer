@@ -21,5 +21,6 @@
         </article>
     @endforeach
 
+{!! $docs->render() !!}
 
 @stop

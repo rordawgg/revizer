@@ -22,4 +22,6 @@
 	</li>
 @endforeach
 
+{!! $docs->render() !!}
+
 @stop

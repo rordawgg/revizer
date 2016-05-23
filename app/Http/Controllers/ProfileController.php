@@ -25,7 +25,8 @@ class ProfileController extends Controller
         }
 
         $docs = User::find($profile->user_id)
-                    ->docs;
+                    ->docs()
+                    ->paginate(15);
     	return view("profiles.show")->withProfile($profile)->withDocs($docs);
     }
     /**

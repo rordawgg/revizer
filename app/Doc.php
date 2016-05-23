@@ -25,7 +25,7 @@ class Doc extends Model
      */
     public function revisions()
     {
-        return $this->hasMany("App\Revision");
+        return $this->hasMany("App\Revision")->orderBy('updated_at', 'desc');
     }
 
     /**
