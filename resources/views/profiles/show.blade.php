@@ -10,7 +10,8 @@
 <h1>{{ $profile->username  }}</h1>
 <img src="http://www.gravatar.com/avatar/{{ $profile->avatar }}?d=identicon&s=200" alt="">
 
- @foreach($docs as $doc)
+@if(!count($docs) == 0)
+    @foreach($docs as $doc)
         <article>
             
             <h3><a href="{{ url('/doc/' . $doc->id) }}">{{ $doc->title }}</a></h3>
@@ -20,7 +21,9 @@
             <hr/>
         </article>
     @endforeach
-
+@else
+<h1>No documents</h1>
+@endif
 {!! $docs->render() !!}
 
 @stop
