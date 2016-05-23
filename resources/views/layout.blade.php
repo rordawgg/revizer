@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href={{ asset("css/lib/Skeleton/css/normalize.css") }}>
-        <link rel="stylesheet" href={{ asset("css/lib/Skeleton/css/skeleton.css") }}>
+        <link rel="stylesheet" href={{ asset("css/lib/normalize.css") }}>
+        <link rel="stylesheet" href={{ asset("css/lib/skeleton.css") }}>
         <link rel="stylesheet" href={{ asset("css/app.css") }}>
         <title>@yield("title")</title>
     </head>
