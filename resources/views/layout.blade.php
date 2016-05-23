@@ -11,7 +11,8 @@
 
 
     <body>
-        @include("partial.nav")
+        {{--@include("partial.nav")--}}
+        @include("partial.small_nav")
         
         <div class="container">
             @include("partial.message")

@@ -1,4 +1,4 @@
-<nav>
+<nav id="bg-nav">
 	<div id="logo-cont">
 		<span>revizr</span>
 		<a href="" class="search-btn u-pull-right">
