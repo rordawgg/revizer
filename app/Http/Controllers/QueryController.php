@@ -18,14 +18,34 @@ class QueryController extends Controller
      */
     public function search(Request $request)
     {
-    	$query = new Query($request->input("keyword"));
-    	$docs = $query->searchByKeyword((new Doc), ["title", "description"]);
-    	$revisions = $query->searchByKeyword((new Revision), ["description"]);
-    	$profiles = $query->searchByKeyword((new Profile), ["username"]);
 
-    	return view("search.results")
-    					->withDocs($docs)
-    					->withRevisions($revisions)
-    					->withProfiles($profiles);
+        $query = new Query($request->input("keyword"));
+
+        switch ($request->input('type')) {
+            case 'docs':
+                $results["docs"] = $query->searchByKeyword((new Doc), ["title", "description"]); // this needs some work... maybe
+                break;
+
+            case 'revisions':
+                $revisions = $query->searchByKeyword((new Revision), ["description"]);
+                $results['revisions'] = $revisions;
+                break;
+
+            case 'profiles':
+                $profiles = $query->searchByKeyword((new Profile), ["username"]);
+                $results['profiles'] = $profiles;
+                break;
+            
+            default:
+                $docs = $query->searchByKeyword((new Doc), ["title", "description"]);
+                $revisions = $query->searchByKeyword((new Revision), ["description"]);
+                $profiles = $query->searchByKeyword((new Profile), ["username"]);
+                $results['docs'] = $docs;
+                $results['profiles'] = $profiles;
+                $results['revisions'] = $revisions;
+                break;
+        }
+
+    	return view("search.results")->withResults($results);
     }
 }

@@ -22,6 +22,7 @@ class Query extends Model
     	foreach ($fields as $field) {
     		$model = $model->orWhere($field, "LIKE", "%$this->keyword%");
     	}
-    	return $model->get();
+            
+    	return count($model->get()) > 0 ? $model->get() : null;
     }
 }
