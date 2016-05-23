@@ -4,6 +4,19 @@
 			<a id="nav-menu-btn" href="">
 				<div></div>
 			</a>
+			<div id="sm-nav-dropdown">
+				<ul>
+					<li><a href="{{ url("/home") }}">Home</a></li>
+					<li><a href="{{ url("/doc") }}">Documents</a></li>
+					<li><a href="{{ url("/categories") }}">Categories</a></li>
+					@if(Auth::guest())
+						<li><a href="{{ url("/login") }}">Login</a></li>
+						<li><a href="{{ url("/register") }}">Register</a></li>
+					@else
+						<li><a href="{{ url("/logout") }}">Logout</a></li>
+					@endif
+				</ul>
+			</div>
 		</li>
 		<li>
 			<a id="search-menu-btn" href="{{ url('/search') }}">
