@@ -23,29 +23,24 @@ class QueryController extends Controller
 
         switch ($request->input('type')) {
             case 'docs':
-                $results["docs"] = $query->searchByKeyword((new Doc), ["title", "description"]); // this needs some work... maybe
+                $query->in(new Doc)->fields(["title", "description"])->searchKeep("docs");
                 break;
 
             case 'revisions':
-                $revisions = $query->searchByKeyword((new Revision), ["description"]);
-                $results['revisions'] = $revisions;
+                $query->in(new Revision)->fields(["description"])->searchKeep("revisions");
                 break;
 
             case 'profiles':
-                $profiles = $query->searchByKeyword((new Profile), ["username"]);
-                $results['profiles'] = $profiles;
+                $query->in(new Profile)->fields(["username"])->searchKeep("profiles");
                 break;
-            
+    
             default:
-                $docs = $query->searchByKeyword((new Doc), ["title", "description"]);
-                $revisions = $query->searchByKeyword((new Revision), ["description"]);
-                $profiles = $query->searchByKeyword((new Profile), ["username"]);
-                $results['docs'] = $docs;
-                $results['profiles'] = $profiles;
-                $results['revisions'] = $revisions;
+                $query->in(new Doc)->fields(["title", "description"])->searchKeep("docs");
+                $query->in(new Revision)->fields(["description"])->searchKeep("revisions");
+                $query->in(new Profile)->fields(["username"])->searchKeep("profiles");
                 break;
         }
 
-    	return view("search.results")->withResults($results);
+        return view("search.results")->withResults($query->results);
     }
 }

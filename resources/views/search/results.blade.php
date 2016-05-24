@@ -1,7 +1,7 @@
 @extends('layout')
+
+	@section('title', "Results")
 	@section('content')
-
-
 		@if(count($results) === 0)
 			<h1>No results</h1>
 		@else		

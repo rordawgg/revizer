@@ -8,6 +8,8 @@ use DB;
 class Query extends Model
 {
 	public $keyword;
+    public $model;
+    public $results = [];
 
 	public function __construct($keyword)
 	{
@@ -15,14 +17,48 @@ class Query extends Model
 	}
 
     /**
-     *  Search each model and fields with keyword.
+     * Set model to query.
      */
-    public function searchByKeyword($model, $fields)
+    public function in($model)
     {
-    	foreach ($fields as $field) {
-    		$model = $model->orWhere($field, "LIKE", "%$this->keyword%");
+        $this->model = $model;
+        return $this;
+    }
+
+    /**
+     * Set fields to query.
+     */
+    public function fields($fields)
+    {
+        $this->fields = $fields;
+        return $this;
+    }
+
+    /**
+     *  Search model and its fields with keyword.
+     */
+    public function search()
+    {
+        $result = $this->model;
+
+    	foreach ($this->fields as $field) {
+    		$result = $result->orWhere($field, "LIKE", "%$this->keyword%");
     	}
-            
-    	return count($model->get()) > 0 ? $model->get() : null;
+
+    	return count($result->get()) > 0 ? $result->get() : null;
+    }
+
+    /**
+     * Search and set result as element of results property.
+     */
+    public function searchKeep($name)
+    {
+        $result = $this->search();
+
+        if (!is_null($result)) {
+            $this->results[$name] = $result;
+        }
+
+        return $this->results;
     }
 }
