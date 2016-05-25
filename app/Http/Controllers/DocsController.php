@@ -33,10 +33,10 @@ class DocsController extends Controller
             $doc->body = $revision->body;
         }
 
-		$revisions = Revision::where("doc_id", "=", $doc->id)
+		$revisions = $doc->revisions()
 								->where("accepted", "=", 0)
 								->get();
-
+		
 		return view("docs.show")->withDoc($doc)->withRevisions($revisions);
 	}
 	/**
