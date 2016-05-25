@@ -2,14 +2,14 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use DB;
 
-class Query extends Model
+class Query
 {
 	public $keyword;
     public $model;
     public $results = [];
+    public $where = [];
 
 	public function __construct($keyword)
 	{
@@ -34,6 +34,17 @@ class Query extends Model
         return $this;
     }
 
+    public function where($field, $operator, $value)
+    {
+        $this->where[] = [
+            "field" => $field,
+            "operator" => $operator,
+            "value" => $value
+        ];
+
+        return $this;
+    }
+
     /**
      *  Search model and its fields with keyword.
      */
@@ -41,10 +52,19 @@ class Query extends Model
     {
         $result = $this->model;
 
-    	foreach ($this->fields as $field) {
-    		$result = $result->orWhere($field, "LIKE", "%$this->keyword%");
-    	}
+        $result = $result->where(function ($query) {
+            foreach ($this->fields as $field) {
+                $query->orWhere($field, "LIKE", "%$this->keyword%");
+            }
+        });
 
+        if (count($this->where) !== 0) {
+            foreach ($this->where as $cond) {
+                $result->where($cond["field"], $cond["operator"], $cond["value"]);
+            }
+        }
+
+        $this->where = [];
     	return count($result->get()) > 0 ? $result->get() : null;
     }
 
