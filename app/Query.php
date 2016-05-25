@@ -10,6 +10,7 @@ class Query
     public $model;
     public $results = [];
     public $where = [];
+    private $result;
 
 	public function __construct($keyword)
 	{
@@ -50,22 +51,17 @@ class Query
      */
     public function search()
     {
-        $result = $this->model;
+        $this->result = $this->model;
 
-        $result = $result->where(function ($query) {
+        $this->result = $this->result->where(function ($query) {
             foreach ($this->fields as $field) {
                 $query->orWhere($field, "LIKE", "%$this->keyword%");
             }
         });
 
-        if (count($this->where) !== 0) {
-            foreach ($this->where as $cond) {
-                $result->where($cond["field"], $cond["operator"], $cond["value"]);
-            }
-        }
+        $this->handleWhere();
 
-        $this->where = [];
-    	return count($result->get()) > 0 ? $result->get() : null;
+    	return count($this->result->get()) > 0 ? $this->result->get() : null;
     }
 
     /**
@@ -80,5 +76,18 @@ class Query
         }
 
         return $this->results;
+    }
+
+    private function handleWhere()
+    {
+        if (count($this->where) !== 0) {
+            foreach ($this->where as $cond) {
+                $this->result->where($cond["field"], $cond["operator"], $cond["value"]);
+            }
+        }
+
+        $this->where = [];
+
+        return $this->result;
     }
 }
