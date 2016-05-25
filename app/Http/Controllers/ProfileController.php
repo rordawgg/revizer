@@ -19,7 +19,8 @@ class ProfileController extends Controller
     {
         if (isset($username)) {
             $profile = Profile::where("username", "=", $username)
-                                ->first();
+                                ->firstOrFail();
+
         } else {
             $profile = Auth::user()->profile;
         }

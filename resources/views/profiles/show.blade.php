@@ -2,7 +2,7 @@
 
 @section('content')
 
-@if($profile->user_id === Auth::user()->id)
+@if(isset(Auth::user()->id) && $profile->user_id === Auth::user()->id)
     <div>
         <a href="{{ url('/user/me/edit') }}">Edit</a>
     </div>
