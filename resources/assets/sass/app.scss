@@ -127,12 +127,21 @@ nav#sm-nav {
 
 				#sm-nav-dropdown {
 					background-color: $secondary;
-					position: relative;
-					right: 150px;
-	
+					position: absolute;
+					right: 10px;
+					z-index: 1006;
+					transform: scaleY(0);
+					transform-origin: top;
+					opacity: 0;
+					@include transition(opacity 400ms, transform $tranTime);
 
 					ul {
-						
+						text-align: left;
+						padding: 0 20px;
+
+						li {
+							font-size: 1.3em;
+						}
 					}
 
 				}
@@ -143,6 +152,11 @@ nav#sm-nav {
 					a > div, #nav-menu > div {
 						background-color: $secondary;
 						box-shadow: 0px 15px 0px $secondary, 0px -15px 0px $secondary;
+					}
+
+					#sm-nav-dropdown {
+						opacity: 1;
+						transform: scaleY(1);
 					}
 				}
 				

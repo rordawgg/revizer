@@ -1,7 +1,7 @@
 <nav id="sm-nav">
 	<ul>
 		<li id="nav-menu-cont">
-			<a id="nav-menu-btn" href="">
+			<a id="nav-menu-btn">
 				<div></div>
 			</a>
 			<div id="sm-nav-dropdown">
