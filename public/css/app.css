@@ -114,16 +114,28 @@ nav#sm-nav {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba(240, 240, 240, 0.8);
+  background-color: rgba(240, 240, 240, 0.9);
   z-index: 1007; }
   #full-search-cont a {
-    font-size: 3em;
-    right: 20px;
-    top: 20px;
-    position: absolute; }
+    position: absolute;
+    right: 100px;
+    top: 100px; }
+    #full-search-cont a span {
+      transform: rotate(45deg); }
+      #full-search-cont a span, #full-search-cont a span:after {
+        display: block;
+        width: 40px;
+        height: 7px;
+        background-color: #505050; }
+      #full-search-cont a span:after {
+        content: "";
+        transform: rotate(-90deg); }
   #full-search-cont form {
     text-align: center; }
     #full-search-cont form input[type="text"] {
-      width: 60%; }
+      width: 60%;
+      font-size: 2em;
+      padding: 30px;
+      background-color: transparent; }
 
 /*# sourceMappingURL=app.css.map */

@@ -2,7 +2,7 @@ $primary: rgb(240, 240, 240);
 $secondary: #FFEB3B;
 $fontColor: rgb(80, 80, 80);
 $tranTime: 300ms;
-$transparent: .8;
+$transparent: .9;
 
 @mixin transform($transforms) {
 	   -moz-transform: $transforms;
@@ -228,10 +228,25 @@ nav#sm-nav {
 	z-index: 1007;
 
 	a {
-		font-size: 3em;
-		right: 20px;
-		top: 20px;
 		position: absolute;
+		right: 100px;
+		top: 100px;
+
+		span {
+			@include transform(rotate(45deg));
+
+			&, &:after {
+				display: block;
+				width: 40px;
+				height: 7px;
+				background-color: $fontColor;
+			}
+
+			&:after {
+				content: "";
+				@include transform(rotate(-90deg));
+			}
+		}
 	}
 
 	form {
@@ -240,6 +255,9 @@ nav#sm-nav {
 
 		input[type="text"] {
 			width: 60%;
+			font-size: 2em;
+			padding: 30px;
+			background-color: transparent;
 		}
 	}
 }
