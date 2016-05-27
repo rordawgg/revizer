@@ -5,6 +5,7 @@
         <link rel="stylesheet" href={{ asset("css/lib/normalize.css") }}>
         <link rel="stylesheet" href={{ asset("css/lib/skeleton.css") }}>
         <link rel="stylesheet" href={{ asset("css/app.css") }}>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <title>@yield("title")</title>
     </head>
 
@@ -12,6 +13,7 @@
 
     <body>
         {{--@include("partial.nav")--}}
+        @include("partial.full_search")
         @include("partial.small_nav")
         
         <div class="container">
@@ -21,6 +23,8 @@
         
             @yield("footer")
         </div>
+
+        <script src={{ asset("js/app.js") }}></script>
     </body>
 
 </html>

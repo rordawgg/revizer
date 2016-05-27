@@ -19,7 +19,7 @@
 			</div>
 		</li>
 		<li>
-			<a id="search-menu-btn" href="{{ url('/search') }}">
+			<a id="search-menu-btn" class="search-btn" href="{{ url('/search') }}">
 				<img src={{ asset("img/icons/search.svg") }} alt="">
 			</a>
 		</li>
