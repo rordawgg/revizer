@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100);
 $primary: rgb(240, 240, 240);
 $secondary: #FFEB3B;
 $fontColor: rgb(80, 80, 80);
@@ -50,18 +51,15 @@ $transparent: .9;
 }
 
 body {
+	font-family: 'Roboto Slab', serif;
 	background-color: $primary;
 	color: $fontColor;
 	font-size: 16px;
 }
 
-input {
-	
-	&[type="text"] {
-		&:focus {
-			border-color: $secondary;
-		}
-	}
+pre {
+	font-family: "Roboto Slab";
+	white-space: pre-wrap;
 }
 
 nav {
@@ -100,9 +98,6 @@ nav#bg-nav {
 
 		span {
 			font-size: 3em;
-		}
-
-		a {
 		}
 	}
 
@@ -280,6 +275,63 @@ nav#sm-nav {
 			font-size: 2em;
 			padding: 30px;
 			background-color: transparent;
+		}
+	}
+}
+
+#doc-cont {
+	.author-info {
+			//margin-left: 30px;
+			span, img {
+				vertical-align: middle;
+			}
+
+			img {
+				border-radius: 50%;
+			}
+		}
+
+	header {
+		margin: 70px 15px;
+		h1 {
+			font-size: 75px;
+		}
+	}
+
+	.category {
+		text-align: center;
+		div {
+			font-size: 1.5em;
+			display: inline-block;
+			background-color: $secondary;
+			text-transform: uppercase;
+			padding: 3px;
+		}
+	}
+	.doc-info {
+
+		.des-crit-cont {
+			text-align: center;
+			div {
+				text-align: left;
+				h5 {
+					display: inline-block;
+					background-color: $secondary;
+					font-size: 1em;
+					padding: 3px;
+				}
+			}
+
+			
+			p {
+				font-size: .75em;
+			}
+
+			& > div {
+				width: 40%;
+				margin: 30px;
+				display: inline-block;
+			}
 		}
 	}
 }

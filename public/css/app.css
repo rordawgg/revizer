@@ -1,15 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100);
 .vertical-center, #full-search-cont form {
   position: relative;
   top: 50%;
   transform: translateY(-50%); }
 
 body {
+  font-family: 'Roboto Slab', serif;
   background-color: #f0f0f0;
   color: #505050;
   font-size: 16px; }
 
-input[type="text"]:focus {
-  border-color: #FFEB3B; }
+pre {
+  font-family: "Roboto Slab";
+  white-space: pre-wrap; }
 
 nav ul {
   padding-left: 0;
@@ -148,5 +151,41 @@ nav#sm-nav {
       font-size: 2em;
       padding: 30px;
       background-color: transparent; }
+
+#doc-cont .author-info span, #doc-cont .author-info img {
+  vertical-align: middle; }
+
+#doc-cont .author-info img {
+  border-radius: 50%; }
+
+#doc-cont header {
+  margin: 70px 15px; }
+  #doc-cont header h1 {
+    font-size: 75px; }
+
+#doc-cont .category {
+  text-align: center; }
+  #doc-cont .category div {
+    font-size: 1.5em;
+    display: inline-block;
+    background-color: #FFEB3B;
+    text-transform: uppercase;
+    padding: 3px; }
+
+#doc-cont .doc-info .des-crit-cont {
+  text-align: center; }
+  #doc-cont .doc-info .des-crit-cont div {
+    text-align: left; }
+    #doc-cont .doc-info .des-crit-cont div h5 {
+      display: inline-block;
+      background-color: #FFEB3B;
+      font-size: 1em;
+      padding: 3px; }
+  #doc-cont .doc-info .des-crit-cont p {
+    font-size: .75em; }
+  #doc-cont .doc-info .des-crit-cont > div {
+    width: 40%;
+    margin: 30px;
+    display: inline-block; }
 
 /*# sourceMappingURL=app.css.map */
