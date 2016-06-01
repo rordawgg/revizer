@@ -12,8 +12,8 @@
 
 
     <body>
-        {{--@include("partial.nav")--}}
         @include("partial.full_search")
+        @include("partial.nav")
         @include("partial.small_nav")
         
         <div class="container">

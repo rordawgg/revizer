@@ -72,6 +72,7 @@ nav {
 }
 
 nav#bg-nav {
+
 	#logo-cont {
 		padding: 0 10px;
 		height: 150px;
@@ -93,7 +94,7 @@ nav#bg-nav {
 		background-color: $secondary;
 		text-align: center;
 		position: relative;
-		z-index: 1005;
+		z-index: 1000;
 
 		li {
 			display: inline-block;
@@ -122,9 +123,14 @@ nav#bg-nav {
 
 nav#sm-nav {
 	position: fixed;
-	right: 30px;
+	right: -100px;
 	top: 30px;
 	z-index: 1000;
+	@include transition($tranTime);
+
+	&.active {
+		right: 30px;
+	}
 
 	& > ul {
 		& > li {
