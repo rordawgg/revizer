@@ -8,6 +8,9 @@ body {
   color: #505050;
   font-size: 16px; }
 
+input[type="text"]:focus {
+  border-color: #FFEB3B; }
+
 nav ul {
   padding-left: 0;
   margin-left: 0;
@@ -19,10 +22,15 @@ nav ul {
 
 nav#bg-nav #logo-cont {
   padding: 0 10px;
-  height: 150px; }
+  height: 150px;
+  vertical-align: middle; }
   nav#bg-nav #logo-cont span, nav#bg-nav #logo-cont .search-btn {
     line-height: 150px;
-    vertical-align: bottom; }
+    display: inline-block; }
+  nav#bg-nav #logo-cont .search-btn {
+    float: right;
+    clear: right;
+    margin-top: 10px; }
   nav#bg-nav #logo-cont span {
     font-size: 3em; }
 

@@ -55,6 +55,15 @@ body {
 	font-size: 16px;
 }
 
+input {
+	
+	&[type="text"] {
+		&:focus {
+			border-color: $secondary;
+		}
+	}
+}
+
 nav {
 	ul {
 		padding-left: 0;
@@ -76,10 +85,17 @@ nav#bg-nav {
 	#logo-cont {
 		padding: 0 10px;
 		height: 150px;
+		vertical-align: middle;
 
 		span, .search-btn {
 			line-height: 150px;
-			vertical-align: bottom;
+			display: inline-block;
+		}
+
+		.search-btn {
+			float: right;
+			clear: right;
+			margin-top: 10px;
 		}
 
 		span {
