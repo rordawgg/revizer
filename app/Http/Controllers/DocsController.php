@@ -19,7 +19,7 @@ class DocsController extends Controller
 	public function index()
 	{
 		$docs = Doc::orderBy('updated_at', 'desc')->paginate(15);
-		return view("docs.index")->withDocs($docs)->withTitle("All Documents");
+		return view("docs.index")->withDocs($docs)->withTitle("Documents");
 	}
 
 	/**
@@ -35,7 +35,7 @@ class DocsController extends Controller
 
 		$revisions = $doc->revisions()
 								->where("accepted", "=", 0)
-								->get();
+								->get();  //refactor...
 		
 		return view("docs.show")->withDoc($doc)->withRevisions($revisions);
 	}

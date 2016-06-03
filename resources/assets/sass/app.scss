@@ -4,6 +4,7 @@ $secondary: #FFEB3B;
 $fontColor: rgb(80, 80, 80);
 $tranTime: 300ms;
 $transparent: .9;
+$smallText: .75em;
 
 @mixin transform($transforms) {
 	   -moz-transform: $transforms;
@@ -50,6 +51,74 @@ $transparent: .9;
 	@include transform(translateY(-50%));
 }
 
+.full-width-link {
+	display: block;
+	text-decoration: none;
+	color: $fontColor;
+	text-align: center;
+	background-color: $secondary;
+	padding: 5px 0;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	@include transition($tranTime);
+
+	&:hover {
+		color: $primary;
+		background-color: $fontColor;
+	}
+}
+
+.sm-sub-head {
+	text-align: left;
+	h5 {
+		text-transform: uppercase;
+		display: inline-block;
+		background-color: $secondary;
+		font-size: 1em;
+		padding: 3px;
+	}
+}
+
+.author-info {
+	span, img {
+		vertical-align: middle;
+	}
+
+	img {
+		border-radius: 50%;
+	}
+}
+
+.pagination {
+	li {
+		background-color: $secondary;
+		display: inline-block;
+
+		&.active {
+			background-color: $fontColor;
+			color: $primary;
+			padding: 0 10px;
+		}
+
+		&.disabled {
+			display: none;
+		}
+
+		a {
+			text-decoration: none;
+			color: $fontColor;
+			padding: 10px;
+		}
+	}
+}
+
+header.rev-doc-head {
+	margin: 70px 15px;
+	h1 {
+		font-size: 75px;
+	}
+}
+
 body {
 	font-family: 'Roboto Slab', serif;
 	background-color: $primary;
@@ -60,6 +129,21 @@ body {
 pre {
 	font-family: "Roboto Slab";
 	white-space: pre-wrap;
+}
+
+input {
+	&[type="text"], &[type="password"], &[type="email"] {
+		border-color: $fontColor;
+	}
+
+	&[type="text"]:focus, &[type="password"]:focus, &[type="email"]:focus {
+		border-color: $secondary;
+	}
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
 }
 
 nav {
@@ -280,23 +364,6 @@ nav#sm-nav {
 }
 
 #doc-cont {
-	.author-info {
-			//margin-left: 30px;
-			span, img {
-				vertical-align: middle;
-			}
-
-			img {
-				border-radius: 50%;
-			}
-		}
-
-	header {
-		margin: 70px 15px;
-		h1 {
-			font-size: 75px;
-		}
-	}
 
 	.category {
 		text-align: center;
@@ -311,27 +378,90 @@ nav#sm-nav {
 	.doc-info {
 
 		.des-crit-cont {
-			text-align: center;
-			div {
-				text-align: left;
-				h5 {
-					display: inline-block;
-					background-color: $secondary;
-					font-size: 1em;
-					padding: 3px;
-				}
-			}
-
-			
 			p {
-				font-size: .75em;
+				font-size: $smallText;
 			}
 
 			& > div {
 				width: 40%;
 				margin: 30px;
 				display: inline-block;
+				vertical-align: top;
 			}
+		}
+	}
+}
+
+.doc-rev-cont {
+
+	.revision {
+		border-bottom: 2px $secondary solid;
+		padding: 20px;
+
+		a {
+			text-decoration: none;
+			color: $fontColor;
+			font-size: $smallText;
+		}
+	}
+}
+
+.rev-info {
+	.description {
+		p {
+			font-size: $smallText;
+		}
+	}
+}
+
+.doc-listing {
+	border-bottom: 2px $secondary solid;
+	padding: 20px;
+
+	a {
+		text-decoration: none;
+		color: $fontColor;
+		font-size: $smallText;
+	}
+}
+
+#cat-cont {
+	.cat-list {
+		text-align: center;
+		margin-top: 100px;
+
+		.cat-listing {
+			display: inline-block;
+			
+			a {
+				text-decoration: none;
+				color: $fontColor;
+				font-size: 2em;
+				background-color: $secondary;
+				padding: 20px;
+				@include transition($tranTime);
+
+				&:hover {
+					background-color: $fontColor;
+					color: $primary;
+				}
+			}
+		}
+	}
+}
+
+#profile-cont {
+	text-align: center;
+
+	header {
+		margin-bottom: 50px;
+
+		.lg-profile-pic {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			overflow: hidden;
+			margin: 20px auto;
 		}
 	}
 }

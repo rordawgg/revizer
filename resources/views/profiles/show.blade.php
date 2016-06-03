@@ -2,13 +2,24 @@
 
 @section('content')
 
-@if(isset(Auth::user()->id) && $profile->user_id === Auth::user()->id)
-    <div>
-        <a href="{{ url('/user/me/edit') }}">Edit</a>
-    </div>
-@endif
-<h1>{{ $profile->username  }}</h1>
-<img src="http://www.gravatar.com/avatar/{{ $profile->avatar }}?d=identicon&s=200" alt="">
+<div id="profile-cont">
+    <header>
+        @if(isset(Auth::user()->id) && $profile->user_id === Auth::user()->id)
+            <div>
+                <a href="{{ url('/user/me/edit') }}">Edit</a>
+            </div>
+        @endif
+        
+        <div class="lg-profile-pic">
+            <img src="http://www.gravatar.com/avatar/{{ $profile->avatar }}?d=identicon&s=200" alt="Profile picture">
+        </div>
+
+        <h1>{{ $profile->username  }}</h1>
+        
+    </header>
+</div>
+
+<hr>
 
 @if(!count($docs) == 0)
     @foreach($docs as $doc)

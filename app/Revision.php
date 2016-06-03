@@ -18,4 +18,9 @@ class Revision extends Model
     {
     	return $this->belongsTo("App\Doc");
     }
+
+    public function user()
+    {
+        return $this->belongsTo("App\User");
+    }
 }
