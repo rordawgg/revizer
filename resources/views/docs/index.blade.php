@@ -5,10 +5,8 @@
 @section("content")
 
 <div>
-	<a href="{{ url('/doc/add') }}">ADD</a>
+	<a href="{{ url('/doc/add') }}">Add Document</a>
 </div>
-
-@include('partial.search')
 
 <hr>
 <h1>{{ ucfirst($title) }}</h1>

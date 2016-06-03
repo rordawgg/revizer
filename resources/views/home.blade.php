@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('content')
-@include('partial.search')
 
     <section>
     <h1>My Documents</h1>
