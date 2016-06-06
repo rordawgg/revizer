@@ -55,9 +55,13 @@ class ProfileController extends Controller
         $inputs = $request->all();
         $user = Auth::user()
                     ->load("profile");
-        $user->update([
-            "password" => bcrypt($inputs["password"])
-        ]);
+
+        if(!empty($inputs["password"])){
+             $user->update([
+                "password" => bcrypt($inputs["password"])
+            ]);
+        }
+
         $user->profile->update([
             "first_name" => $inputs["first_name"],
             "last_name"=> $inputs["last_name"],
