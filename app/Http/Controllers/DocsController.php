@@ -9,6 +9,7 @@ use App\Doc;
 use App\Revision;
 use App\Cat;
 use Auth;
+use App\Helpers\Notify;
 
 class DocsController extends Controller
 {
@@ -19,6 +20,7 @@ class DocsController extends Controller
 	public function index()
 	{
 		$docs = Doc::orderBy('updated_at', 'desc')->paginate(15);
+		
 		return view("docs.index")->withDocs($docs)->withTitle("Documents");
 	}
 
@@ -69,6 +71,7 @@ class DocsController extends Controller
 		$doc->criteria = $request->input("criteria");
 		$doc->body = $request->input("body");
 		$user->docs()->save($doc);
+		Notify::alert('Successfully added document', 'success');
 
 		return redirect("/doc/" . $doc->id);
 	}
@@ -104,7 +107,7 @@ class DocsController extends Controller
 
 		$doc->fill($request->all());
 		$doc->save();
-
+		Notify::alert('Successfully changed document', 'success');
 		return redirect("/doc/" . $doc->id);
 	}
 
@@ -115,6 +118,7 @@ class DocsController extends Controller
 	{
 		$doc->revisions()->delete();
 		$doc->delete();
+		Notify::alert('Successfully removed document', 'success');
 		return redirect("/doc");
 	}
 }

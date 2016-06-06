@@ -7,6 +7,7 @@ use App\Helpers\Diff;
 use App\Http\Requests;
 use App\Doc;
 use App\Revision;
+use App\Helpers\Notify;
 
 class RevisionsController extends Controller
 {
@@ -50,7 +51,7 @@ class RevisionsController extends Controller
     	$rev->description = $request->input("description");
     	$rev->body = $request->input("body");
     	$doc->revisions()->save($rev);
-
+      Notify::alert('Successfully added revision', 'success');
     	return redirect("/doc/{$doc->id}");
     }
 
@@ -63,7 +64,7 @@ class RevisionsController extends Controller
       $revision->accepted = 1;
       $revision->save();
       $doc->removeUnaccepted();
-
+      Notify::alert('Successfully accepted revision', 'success');
       return redirect("/doc/$doc->id");
     }
 
@@ -73,6 +74,7 @@ class RevisionsController extends Controller
     public function delete(Doc $doc, Revision $revision) 
       {
         $revision->delete();
+        Notify::alert('Successfully deleted revision', 'success');
         return redirect("/doc/$doc->id");
       }
 }

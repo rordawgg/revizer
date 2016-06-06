@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Doc;
+use App\Helpers\Notify;
 
 class AuthorizeRevision
 {
@@ -17,7 +18,7 @@ class AuthorizeRevision
     public function handle($request, Closure $next)
     {
         if (request()->user()->id === $request->doc->user_id) {
-            request()->session()->flash("flash_message", "You cannot revise your own document.");
+            Notify::alert('You cannot revise your own document', 'danger');
             return back();
         }
 

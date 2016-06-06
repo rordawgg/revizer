@@ -8,7 +8,7 @@ use App\Profile;
 use App\User;
 
 use App\Http\Requests;
-
+use App\Helpers\Notify;
 class ProfileController extends Controller
 {
     /**
@@ -63,6 +63,7 @@ class ProfileController extends Controller
             "last_name"=> $inputs["last_name"],
         ]);
 
+        Notify::alert('Successfully updated profile', 'success');
         return redirect("/user/me");
     }
 }
