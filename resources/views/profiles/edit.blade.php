@@ -10,11 +10,10 @@
 
 	<legend>Profile Information:</legend>
 		<br>
-	    Email: <input name="email" value="{{ $user->email }}"/><br>
-	    Password: <input name="password" type="password" value=""/><br><br>
 	    First Name: <input name="first_name" value="{{ $user->profile->first_name }}"/><br>
 	    Last Name: <input name="last_name" value="{{ $user->profile->last_name }}"/><br>
-	    Username (unique): <input name="username" value="{{ $user->profile->username }}"/><br>
+	    Update Password: <input name="password" type="password" value=""/><br>
+	    Confirm Password: <input type="password" name="password_confirmation"><br>
 	</fieldset>	
 	<button	type="submit">Update</button>
 </form>

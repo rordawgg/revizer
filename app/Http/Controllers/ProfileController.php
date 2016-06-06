@@ -47,8 +47,6 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            "username" => "required|max:20|min:5|unique:profiles|alpha-dash",
-            "email" => "required|email|max:255|unique:users",
             "password" => "required|min:6|confirmed",
             "first_name" => "max:30|min:0|alpha-dash",
             "last_name" => "max:30|min:0|alpha-dash"
@@ -58,16 +56,13 @@ class ProfileController extends Controller
         $user = Auth::user()
                     ->load("profile");
         $user->update([
-            "email" => $inputs["email"],
             "password" => bcrypt($inputs["password"])
         ]);
         $user->profile->update([
-            "username" => $inputs["username"],
             "first_name" => $inputs["first_name"],
             "last_name"=> $inputs["last_name"],
-            "avatar" => md5($inputs["email"])
         ]);
 
-        return redirect("/profile/me");
+        return redirect("/user/me");
     }
 }
