@@ -2,39 +2,66 @@
 
 	@section('title', "Results")
 	@section('content')
+	<div class="results-cont">
 		@if(count($results) === 0)
 			<h1>No results</h1>
 		@else		
 			@if(isset($results['docs']))
-				<section>
-					<a href={{ url('search/?keyword=' . request()->input('keyword') . '&type=' . 'docs') }}><h2>Documents</h2></a>
-
-					@foreach($results['docs'] as $doc)
-			            <h3><a href="{{ url('/doc/' . $doc->id) }}">{{ $doc->title }}</a></h3>
-			            <p>{{ $doc->description }}</p>
-					@endforeach
-				</section>
+				<div class="list">
+					<div class="sm-sub-head">
+						<h4>
+							<a href={{ url('search/?keyword=' . request()->input('keyword') . '&type=' . 'docs') }}>Documents</a>
+						</h4>
+					</div>
+					<ul>
+						@foreach($results['docs'] as $doc)
+							<div class="listing">
+					            <h4>
+					            	<li><a href="{{ url('/doc/' . $doc->id) }}">{{ $doc->title }}</a></li>
+					            </h4>
+					            <p>{{ $doc->description }}</p>
+				        	</div>
+						@endforeach
+					</ul>
+				</div>
 			@endif
+
 			@if(isset($results['revisions']))
 				<hr>
-				<section>
-					<a href={{ url('search/?keyword=' . request()->input('keyword') . '&type=' . 'revisions') }}><h2>Revisions</h2></a>
-
-					@foreach($results['revisions'] as $revision)
-			            <p><a href="{{ url('/doc/' . $revision->doc_id . '/revision/' . $revision->id) }}">{{ $revision->description }}</a></p>              
-					@endforeach
-				</section>
+				<div class="list">
+					<div class="sm-sub-head">
+						<h4>
+							<a href={{ url('search/?keyword=' . request()->input('keyword') . '&type=' . 'revisions') }}>Revisions</a>
+						</h4>
+					</div>
+					<ul>
+						@foreach($results['revisions'] as $revision)
+							<div class="listing">
+				            	<p>
+				            		<li><a href="{{ url('/doc/' . $revision->doc_id . '/revision/' . $revision->id) }}">{{ $revision->description }}</a></li>
+				            	</p> 
+				            </div>             
+						@endforeach
+					</ul>
+				</div>
 			@endif
+
 			@if(isset($results['profiles']))
 				<hr>
 
-				<section>
-					<a href={{ url('search/?keyword=' . request()->input('keyword') . '&type=' . 'profiles') }}><h2>Profiles</h2></a>
-
-					@foreach($results['profiles'] as $profile)
-			            <p><a href="{{ url('/user/' . $profile->username) }}">{{ $profile->username }}</a></p>              
-					@endforeach
-				</section>
+				<div class="profile-list">
+					<div class="sm-sub-head">
+						<h4>
+							<a href={{ url('search/?keyword=' . request()->input('keyword') . '&type=' . 'profiles') }}>Profiles</a>
+						</h4>
+					</div>
+					<ul>
+						@foreach($results['profiles'] as $profile)
+				            	@include("partial.profile_results_pic")           
+						@endforeach
+					</ul>
+				</div>
+	</div>
 
 			@endif
 		@endif		

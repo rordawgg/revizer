@@ -20,11 +20,10 @@
 
 .sm-sub-head {
   text-align: left; }
-  .sm-sub-head h5 {
+  .sm-sub-head h1, .sm-sub-head h2, .sm-sub-head h3, .sm-sub-head h4, .sm-sub-head h5, .sm-sub-head h6 {
     text-transform: uppercase;
     display: inline-block;
     background-color: #FFEB3B;
-    font-size: 1em;
     padding: 3px; }
 
 .author-info span, .author-info img {
@@ -43,7 +42,6 @@
   .pagination li.disabled {
     display: none; }
   .pagination li a {
-    text-decoration: none;
     color: #505050;
     padding: 10px; }
 
@@ -62,6 +60,11 @@ pre {
   font-family: "Roboto Slab";
   white-space: pre-wrap; }
 
+textarea, select {
+  border-color: #505050; }
+  textarea:focus, select:focus {
+    border-color: #FFEB3B; }
+
 input[type="text"], input[type="password"], input[type="email"] {
   border-color: #505050; }
 
@@ -72,14 +75,22 @@ ul {
   list-style: none;
   padding-left: 0; }
 
+a {
+  text-decoration: none;
+  color: #505050; }
+  a:hover {
+    background-color: #FFEB3B;
+    color: #505050; }
+
+nav a:hover {
+  background-color: transparent; }
+
 nav ul {
   padding-left: 0;
   margin-left: 0;
   list-style: none; }
   nav ul li a {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #505050; }
+    text-transform: uppercase; }
 
 nav#bg-nav #logo-cont {
   padding: 0 10px;
@@ -192,6 +203,8 @@ nav#sm-nav {
     position: absolute;
     right: 100px;
     top: 100px; }
+    #full-search-cont a:hover {
+      background-color: transparent; }
     #full-search-cont a span {
       transform: rotate(45deg); }
       #full-search-cont a span, #full-search-cont a span:after {
@@ -232,19 +245,15 @@ nav#sm-nav {
   border-bottom: 2px #FFEB3B solid;
   padding: 20px; }
   .doc-rev-cont .revision a {
-    text-decoration: none;
-    color: #505050;
     font-size: 0.75em; }
 
 .rev-info .description p {
   font-size: 0.75em; }
 
-.doc-listing {
+.listing {
   border-bottom: 2px #FFEB3B solid;
   padding: 20px; }
-  .doc-listing a {
-    text-decoration: none;
-    color: #505050;
+  .listing a {
     font-size: 0.75em; }
 
 #cat-cont .cat-list {
@@ -253,8 +262,6 @@ nav#sm-nav {
   #cat-cont .cat-list .cat-listing {
     display: inline-block; }
     #cat-cont .cat-list .cat-listing a {
-      text-decoration: none;
-      color: #505050;
       font-size: 2em;
       background-color: #FFEB3B;
       padding: 20px;
@@ -290,5 +297,42 @@ nav#sm-nav {
 
 .success {
   background-color: #66bb6a; }
+
+.results-cont .profile-list .profile-listing {
+  padding: 15px; }
+  .results-cont .profile-list .profile-listing .author-info span {
+    padding-left: 10px; }
+
+.add-doc form .title-input, .edit-doc form .title-input {
+  border: none;
+  border-bottom: 2px #FFEB3B solid;
+  width: 100%;
+  font-size: 3em;
+  padding: 40px; }
+
+.add-doc form .description-input, .add-doc form .criteria-input, .edit-doc form .description-input, .edit-doc form .criteria-input {
+  width: 100%;
+  height: 75px; }
+
+.add-doc form .body-input, .edit-doc form .body-input {
+  width: 100%;
+  height: 225px; }
+
+.add-doc form button, .add-doc form input, .add-doc form textarea, .add-doc form label, .edit-doc form button, .edit-doc form input, .edit-doc form textarea, .edit-doc form label {
+  background-color: transparent;
+  margin: 30px auto;
+  display: block;
+  border-radius: 0;
+  border-color: #FFEB3B; }
+
+.add-doc form select, .edit-doc form select {
+  border-color: #FFEB3B;
+  background-color: transparent; }
+
+.add-doc form input[type="radio"], .edit-doc form input[type="radio"] {
+  display: inline; }
+
+.add-doc form .version, .edit-doc form .version {
+  text-align: center; }
 
 /*# sourceMappingURL=app.css.map */
