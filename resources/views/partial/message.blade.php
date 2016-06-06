@@ -1,5 +1,5 @@
 @if(Session::has("alert"))
-	<div class="{{ session('alert')['level'] }}">{{ Session::get('alert')['message'] }}</div>
+	<div class="alert {{ session('alert')['level'] }}">{{ Session::get('alert')['message'] }}</div>
 @endif
 
 @if (count($errors) > 0)

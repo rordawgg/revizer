@@ -466,4 +466,26 @@ nav#sm-nav {
 	}
 }
 
+.copyright{
+	text-align: center;
+}
+
+
+.alert{
+  margin: 10px 0;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+ }
+
+.danger{
+  background-color: #b71c1c;
+}
+.success{
+  background-color: #66bb6a;
+}
+
+
 //@include inline-block-lr(#logo-cont, span, #search-btn-cont);

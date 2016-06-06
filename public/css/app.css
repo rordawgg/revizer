@@ -274,9 +274,21 @@ nav#sm-nav {
       overflow: hidden;
       margin: 20px auto; }
 
+.copyright {
+  text-align: center; }
 
-     .copyright{
-      text-align: center;
-     } 
+.alert {
+  margin: 10px 0;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  font-weight: bold; }
+
+.danger {
+  background-color: #b71c1c; }
+
+.success {
+  background-color: #66bb6a; }
 
 /*# sourceMappingURL=app.css.map */
