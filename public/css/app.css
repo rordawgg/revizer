@@ -335,4 +335,10 @@ nav#sm-nav {
 .add-doc form .version, .edit-doc form .version {
   text-align: center; }
 
+@media (max-width: 1023px) {
+  nav#bg-nav {
+    display: none; }
+  nav#sm-nav {
+    right: 30px; } }
+
 /*# sourceMappingURL=app.css.map */

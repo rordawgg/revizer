@@ -5,6 +5,7 @@ $fontColor: rgb(80, 80, 80);
 $tranTime: 300ms;
 $transparent: .9;
 $smallText: .75em;
+$tablet: "(max-width: 1023px)";
 
 @mixin transform($transforms) {
 	   -moz-transform: $transforms;
@@ -549,6 +550,20 @@ nav#sm-nav {
 		}
 		.version {
 			text-align: center;
+		}
+	}
+}
+
+
+
+@media #{$tablet} {
+	nav {
+		&#bg-nav {
+			display: none;
+		}
+
+		&#sm-nav {
+			right: 30px;
 		}
 	}
 }
