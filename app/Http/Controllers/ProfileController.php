@@ -47,7 +47,7 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            "password" => "required|min:6|confirmed",
+            "password" => "min:6|confirmed",
             "first_name" => "max:30|min:0|alpha-dash",
             "last_name" => "max:30|min:0|alpha-dash"
         ]);
