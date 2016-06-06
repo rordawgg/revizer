@@ -25,6 +25,9 @@
         </div>
 
         <script src={{ asset("js/app.js") }}></script>
+        
+        <hr>
+        @include("partial.footer")
     </body>
 
 </html>
