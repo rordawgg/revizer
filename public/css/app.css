@@ -335,6 +335,14 @@ nav#sm-nav {
 .add-doc form .version, .edit-doc form .version {
   text-align: center; }
 
+.home-search input {
+  border: none;
+  border-bottom: 2px #FFEB3B solid;
+  width: 100%;
+  font-size: 3em;
+  padding: 40px;
+  background-color: transparent; }
+
 @media (max-width: 1023px) {
   nav#bg-nav {
     display: none; }

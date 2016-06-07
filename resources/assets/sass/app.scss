@@ -554,6 +554,16 @@ nav#sm-nav {
 	}
 }
 
+.home-search {
+	input {
+		border: none;
+		border-bottom: 2px $secondary solid;
+		width: 100%;
+		font-size: 3em;
+		padding: 40px;
+		background-color: transparent;
+	}
+}
 
 
 @media #{$tablet} {
