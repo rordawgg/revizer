@@ -6,7 +6,7 @@
 			</a>
 			<div id="sm-nav-dropdown">
 				<ul>
-					<li><a href="{{ url("/home") }}">Home</a></li>
+					<li><a href="{{ url("/") }}">Home</a></li>
 					<li><a href="{{ url("/doc") }}">Documents</a></li>
 					<li><a href="{{ url("/categories") }}">Categories</a></li>
 					@if(Auth::guest())
