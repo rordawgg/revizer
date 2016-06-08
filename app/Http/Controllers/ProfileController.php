@@ -56,7 +56,7 @@ class ProfileController extends Controller
         $user = Auth::user()
                     ->load("profile");
 
-        if(!empty($inputs["password"])){
+        if(!empty($inputs["password"]) && !empty($inputs["password_confirmation"])){
              $user->update([
                 "password" => bcrypt($inputs["password"])
             ]);
