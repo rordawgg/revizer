@@ -44,6 +44,9 @@
   .pagination li a {
     color: #505050;
     padding: 10px; }
+    .pagination li a:hover {
+      background-color: transparent;
+      color: #505050; }
 
 header.rev-doc-head {
   margin: 70px 15px; }
@@ -60,16 +63,25 @@ pre {
   font-family: "Roboto Slab";
   white-space: pre-wrap; }
 
-textarea, select {
-  border-color: #505050; }
-  textarea:focus, select:focus {
-    border-color: #FFEB3B; }
-
 input[type="text"], input[type="password"], input[type="email"] {
   border-color: #505050; }
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
   border-color: #FFEB3B; }
+
+input.pretty-input, #full-search-cont form input[type="text"], .add-doc form input.title-input, .edit-doc form input.title-input, .create-rev form input.title-input, .home-search input {
+  border: none;
+  border-bottom: 2px #FFEB3B solid;
+  background-color: transparent;
+  border-radius: 0; }
+  input.pretty-input:focus, #full-search-cont form input[type="text"]:focus, .add-doc form input.title-input:focus, .edit-doc form input.title-input:focus, .create-rev form input.title-input:focus, .home-search input:focus {
+    border: none;
+    border-bottom: 2px #FFEB3B solid; }
+
+textarea, select {
+  border-color: #505050; }
+  textarea:focus, select:focus {
+    border-color: #FFEB3B; }
 
 ul {
   list-style: none;
@@ -220,8 +232,7 @@ nav#sm-nav {
     #full-search-cont form input[type="text"] {
       width: 60%;
       font-size: 2em;
-      padding: 30px;
-      background-color: transparent; }
+      padding: 30px; }
 
 #doc-cont .category {
   text-align: center; }
@@ -304,8 +315,6 @@ nav#sm-nav {
     padding-left: 10px; }
 
 .add-doc form .title-input, .edit-doc form .title-input, .create-rev form .title-input {
-  border: none;
-  border-bottom: 2px #FFEB3B solid;
   width: 100%;
   font-size: 3em;
   padding: 40px; }
@@ -336,12 +345,9 @@ nav#sm-nav {
   text-align: center; }
 
 .home-search input {
-  border: none;
-  border-bottom: 2px #FFEB3B solid;
   width: 100%;
   font-size: 3em;
-  padding: 40px;
-  background-color: transparent; }
+  padding: 40px; }
 
 @media (max-width: 1023px) {
   nav#bg-nav {

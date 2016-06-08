@@ -107,6 +107,11 @@ $tablet: "(max-width: 1023px)";
 		a {
 			color: $fontColor;
 			padding: 10px;
+
+			&:hover {
+				background-color: transparent;
+				color: $fontColor;
+			}
 		}
 	}
 }
@@ -130,19 +135,31 @@ pre {
 	white-space: pre-wrap;
 }
 
-textarea, select {
-	border-color: $fontColor;
-	&:focus {
-		border-color: $secondary;
-	}
-}
-
 input {
 	&[type="text"], &[type="password"], &[type="email"] {
 		border-color: $fontColor;
 	}
 	
 	&[type="text"]:focus, &[type="password"]:focus, &[type="email"]:focus {
+		border-color: $secondary;
+	}
+
+	&.pretty-input {
+		border: none; 
+		border-bottom: 2px $secondary solid;
+		background-color: transparent;
+		border-radius: 0;
+
+		&:focus {
+			border: none; 
+			border-bottom: 2px $secondary solid;
+		}
+	}
+}
+
+textarea, select {
+	border-color: $fontColor;
+	&:focus {
 		border-color: $secondary;
 	}
 }
@@ -378,10 +395,10 @@ nav#sm-nav {
 		text-align: center;
 
 		input[type="text"] {
+			@extend .pretty-input;
 			width: 60%;
 			font-size: 2em;
 			padding: 30px;
-			background-color: transparent;
 		}
 	}
 }
@@ -520,8 +537,7 @@ nav#sm-nav {
 .add-doc, .edit-doc, .create-rev {
 	form {
 		.title-input {
-			border: none;
-			border-bottom: 2px $secondary solid;
+			@extend .pretty-input;
 			width: 100%;
 			font-size: 3em;
 			padding: 40px;
@@ -556,12 +572,10 @@ nav#sm-nav {
 
 .home-search {
 	input {
-		border: none;
-		border-bottom: 2px $secondary solid;
+		@extend .pretty-input;
 		width: 100%;
 		font-size: 3em;
 		padding: 40px;
-		background-color: transparent;
 	}
 }
 
