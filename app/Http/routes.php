@@ -36,6 +36,9 @@ Route::group(['middleware' => "auth"], function(){
 Route::get("/", function () {
 	return view("welcome");
 });
+Route::get("/home", function () {
+	return view("welcome");
+});
 
 Route::auth();
 Route::get("/doc", "DocsController@index");
@@ -43,7 +46,6 @@ Route::get("/doc/{doc}", "DocsController@show");
 Route::get("/doc/{doc}/revision/{revision}", "RevisionsController@show")->middleware("rev_belongs");
 Route::get("/categories/{cat}", "CatsController@show");
 Route::get("/categories", "CatsController@index");
-//Route::get("/home", "HomeController@index");
 Route::get("/user/{username}", "ProfileController@show");
 Route::get("/search", "QueryController@search");
 
