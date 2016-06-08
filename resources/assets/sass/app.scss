@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100|Roboto);
 $primary: rgb(240, 240, 240);
 $secondary: #FFEB3B;
 $fontColor: rgb(80, 80, 80);
@@ -124,7 +124,7 @@ header.rev-doc-head {
 }
 
 body {
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Roboto Slab', Helvetica, Arial, san-serif;
 	background-color: $primary;
 	color: $fontColor;
 	font-size: 16px;
@@ -182,6 +182,8 @@ a {
 // Specific
 
 nav {
+	font-family: "Roboto";
+
 	a {
 		&:hover {
 			background-color: transparent;
@@ -219,6 +221,10 @@ nav#bg-nav {
 
 		span {
 			font-size: 3em;
+
+			&:hover {
+				text-decoration: line-through;		
+			}
 		}
 	}
 

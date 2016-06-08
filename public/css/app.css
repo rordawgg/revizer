@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100|Roboto);
 .vertical-center, #full-search-cont form {
   position: relative;
   top: 50%;
@@ -54,7 +54,7 @@ header.rev-doc-head {
     font-size: 75px; }
 
 body {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto Slab', Helvetica, Arial, san-serif;
   background-color: #f0f0f0;
   color: #505050;
   font-size: 16px; }
@@ -94,15 +94,16 @@ a {
     background-color: #FFEB3B;
     color: #505050; }
 
-nav a:hover {
-  background-color: transparent; }
-
-nav ul {
-  padding-left: 0;
-  margin-left: 0;
-  list-style: none; }
-  nav ul li a {
-    text-transform: uppercase; }
+nav {
+  font-family: "Roboto"; }
+  nav a:hover {
+    background-color: transparent; }
+  nav ul {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none; }
+    nav ul li a {
+      text-transform: uppercase; }
 
 nav#bg-nav #logo-cont {
   padding: 0 10px;
@@ -117,6 +118,8 @@ nav#bg-nav #logo-cont {
     margin-top: 10px; }
   nav#bg-nav #logo-cont span {
     font-size: 3em; }
+    nav#bg-nav #logo-cont span:hover {
+      text-decoration: line-through; }
 
 nav#bg-nav ul {
   background-color: #FFEB3B;
