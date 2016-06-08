@@ -7,7 +7,7 @@
         <link rel="stylesheet" href={{ asset("css/lib/skeleton.css") }}>
         <link rel="stylesheet" href={{ asset("css/app.css") }}>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <title>@yield("title")</title>
+        <title>@yield("title") | revizr</title>
     </head>
 
 

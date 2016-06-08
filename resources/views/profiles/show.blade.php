@@ -1,5 +1,6 @@
 @extends("layout")
 
+@section('title', ucfirst($profile->username) . "'s Profile")
 @section('content')
 
 <div id="profile-cont">

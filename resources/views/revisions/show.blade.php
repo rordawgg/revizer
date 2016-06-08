@@ -1,6 +1,6 @@
 @extends("layout")
 
-@section("title", "revisions")
+@section("title", "Revisions")
 
 @section("content")
 	<div id="rev-cont">
