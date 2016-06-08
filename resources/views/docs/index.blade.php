@@ -19,9 +19,9 @@
 		<a class="full-width-link" href="{{ url('/doc/add') }}">Add Document</a>
 	</div>
 
-	<ul>
+	<ul class="list">
 		@foreach($docs as $doc)
-			<li class="doc-listing">
+			<li class="listing">
 				<a href="{{ url('/doc', [$doc->id]) }}">{{ $doc->title }}</a>
 			</li>
 		@endforeach
