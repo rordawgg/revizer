@@ -61,7 +61,9 @@ class Query
 
         $this->handleWhere();
 
-    	return count($this->result->get()) > 0 ? $this->result->get() : null;
+        $result = $this->result->get();
+
+    	return count($result) > 0 ? $result : null;
     }
 
     /**

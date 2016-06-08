@@ -23,7 +23,9 @@ class RevisionBelongsToDoc
         if (($rev->doc_id === $doc->id) && ($rev->accepted === 0)) {
             return $next($request);  
         }
-        request()->session()->flash("flash_message", "Revision Mismatch!");
+
+        \App\Helpers\Notify::alert("Revision Mismatch", "danger");
+        //request()->session()->flash("flash_message", "Revision Mismatch!");
         return redirect("/doc/{$doc->id}");     
     }
 }
