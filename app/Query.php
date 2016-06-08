@@ -62,7 +62,6 @@ class Query
         $this->handleWhere();
 
         $result = $this->result->get();
-
     	return count($result) > 0 ? $result : null;
     }
 

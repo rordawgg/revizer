@@ -25,7 +25,6 @@ class RevisionBelongsToDoc
         }
 
         \App\Helpers\Notify::alert("Revision Mismatch", "danger");
-        //request()->session()->flash("flash_message", "Revision Mismatch!");
         return redirect("/doc/{$doc->id}");     
     }
 }
