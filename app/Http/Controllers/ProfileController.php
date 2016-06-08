@@ -8,23 +8,31 @@ use App\Profile;
 use App\User;
 
 use App\Http\Requests;
-
+use App\Helpers\Notify;
 class ProfileController extends Controller
 {
+    /**
+     * Get a selected users profile
+     * @return profile view with user docs
+     */
     public function show($username = null)
     {
         if (isset($username)) {
             $profile = Profile::where("username", "=", $username)
-                                ->first();
+                                ->firstOrFail();
+
         } else {
             $profile = Auth::user()->profile;
         }
 
         $docs = User::find($profile->user_id)
-                    ->docs;
+                    ->docs()
+                    ->paginate(15);
     	return view("profiles.show")->withProfile($profile)->withDocs($docs);
     }
-
+    /**
+     * Modify the current user profile information
+     */
     public function edit()
     {
     	$user = Auth::user()
@@ -32,12 +40,14 @@ class ProfileController extends Controller
     	return view("profiles.edit")->withUser($user);
     }
 
+    /**
+     * Validate user form input and update.
+     * Update the current user profile
+     */
     public function update(Request $request)
     {
         $this->validate($request, [
-            "username" => "required|max:20|min:5|unique:profiles|alpha-dash",
-            "email" => "required|email|max:255|unique:users",
-            "password" => "required|min:6|confirmed",
+            "password" => "min:6|confirmed",
             "first_name" => "max:30|min:0|alpha-dash",
             "last_name" => "max:30|min:0|alpha-dash"
         ]);
@@ -45,17 +55,19 @@ class ProfileController extends Controller
         $inputs = $request->all();
         $user = Auth::user()
                     ->load("profile");
-        $user->update([
-            "email" => $inputs["email"],
-            "password" => bcrypt($inputs["password"])
-        ]);
+
+        if(!empty($inputs["password"]) && !empty($inputs["password_confirmation"])){
+             $user->update([
+                "password" => bcrypt($inputs["password"])
+            ]);
+        }
+
         $user->profile->update([
-            "username" => $inputs["username"],
             "first_name" => $inputs["first_name"],
             "last_name"=> $inputs["last_name"],
-            "avatar" => md5($inputs["email"])
         ]);
 
-        return redirect("/profile/me");
+        Notify::alert('Successfully updated profile', 'success');
+        return redirect("/user/me");
     }
 }

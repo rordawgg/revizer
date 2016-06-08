@@ -3,16 +3,24 @@
 @section("title", "Categories")
 
 @section("content")
-<h2>Categories</h2>
-<hr/>
-@if(count($cats)==0)
-	<h1>No Categories</h1>
-@endif
+<div id="cat-cont">
+	<header>
+		<h1>Categories</h1>
+	</header>
 
-@foreach($cats as $cat)
-	<li>
-		<a href="{{ url("categories/" . $cat->name ) }}">{{ ucfirst($cat->name) }}</a>
-	</li>
-@endforeach
+	<hr/>
+
+	@if(count($cats)==0)
+		<h1>No Categories</h1>
+	@endif
+	
+	<ul class="cat-list">
+		@foreach($cats as $cat)
+			<li class="cat-listing">
+				<a href="{{ url("categories/" . $cat->name ) }}">{{ ucfirst($cat->name) }}</a>
+			</li>
+		@endforeach
+	</ul>
+</div>
 
 @stop

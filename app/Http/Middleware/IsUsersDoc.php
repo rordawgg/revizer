@@ -8,7 +8,8 @@ use Auth;
 class IsUsersDoc
 {
     /**
-     * Handle an incoming request.
+     * Check if user owns the document.
+     *
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

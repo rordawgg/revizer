@@ -25,8 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = Auth::user()->load("profile")->load("docs");
+        $user = Auth::user()->load("profile");
+        $docs = $user->docs()->paginate(15);
         
-        return view("home")->withUser($user);
+        return view("home")->withUser($user)->withDocs($docs);
     }
 }

@@ -1,10 +1,17 @@
-<nav>
+<nav id="bg-nav">
+	<div id="logo-cont">
+		<span>revizr</span>
+		<a href="" class="search-btn">
+			<img src={{ asset("img/icons/search.svg") }} alt="">
+		</a>
+	</div>
+
 	<ul>
-		<li><a href="{{ url("/home") }}">Home</a></li>
+		<li><a href="{{ url("/") }}">Home</a></li>
 		<li><a href="{{ url("/doc") }}">Documents</a></li>
-		<li><a href="{{ url("/categories") }}">Categories</a></li>
-		<li>
-			<ul>
+		<li class="dropdown">
+			<a href="{{ url("/categories") }}">Categories</a>
+			<ul class="dropdown-content">
 				@foreach($cats as $cat)
 					<li><a href="{{ url("/categories/" . $cat->name) }}">{{ ucfirst($cat->name) }}</a></li>
 				@endforeach

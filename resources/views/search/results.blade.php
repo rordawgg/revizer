@@ -1,39 +1,69 @@
 @extends('layout')
+
+	@section('title', "Results")
 	@section('content')
-
-
-		@if((count($docs) === 0) && (count($revisions) === 0) &&(count($profiles) === 0))
+	<div class="results-cont">
+		@if(count($results) === 0)
 			<h1>No results</h1>
-		@else
-			<section>
-				<h2>Documents</h2>
+		@else		
+			@if(isset($results['docs']))
+				<div class="list">
+					<div class="sm-sub-head">
+						<h4>
+							<a href={{ url('search/?keyword=' . request()->input('keyword') . '&type=' . 'docs') }}>Documents</a>
+						</h4>
+					</div>
+					<ul>
+						@foreach($results['docs'] as $doc)
+							<div class="listing">
+					            <h4>
+					            	<li><a href="{{ url('/doc/' . $doc->id) }}">{{ $doc->title }}</a></li>
+					            </h4>
+					            <p>{{ $doc->description }}</p>
+				        	</div>
+						@endforeach
+					</ul>
+				</div>
+			@endif
 
-				@foreach($docs as $doc)
-		            <h3><a href="{{ url('/doc/' . $doc->id) }}">{{ $doc->title }}</a></h3>
-		            <p>{{ $doc->description }}</p>
-				@endforeach
-			</section>
+			@if(isset($results['revisions']))
+				<hr>
+				<div class="list">
+					<div class="sm-sub-head">
+						<h4>
+							<a href={{ url('search/?keyword=' . request()->input('keyword') . '&type=' . 'revisions') }}>Revisions</a>
+						</h4>
+					</div>
+					<ul>
+						@foreach($results['revisions'] as $revision)
+							<div class="listing">
+				            	<p>
+				            		<li><a href="{{ url('/doc/' . $revision->doc_id . '/revision/' . $revision->id) }}">{{ $revision->description }}</a></li>
+				            	</p> 
+				            </div>             
+						@endforeach
+					</ul>
+				</div>
+			@endif
 
-			<hr>
+			@if(isset($results['profiles']))
+				<hr>
 
-			<section>
-				<h2>Revisions</h2>
+				<div class="profile-list">
+					<div class="sm-sub-head">
+						<h4>
+							<a href={{ url('search/?keyword=' . request()->input('keyword') . '&type=' . 'profiles') }}>Profiles</a>
+						</h4>
+					</div>
+					<ul>
+						@foreach($results['profiles'] as $profile)
+				            	@include("partial.profile_results_pic")           
+						@endforeach
+					</ul>
+				</div>
+	</div>
 
-				@foreach($revisions as $revision)
-		            <p><a href="{{ url('/doc/' . $revision->doc_id . '/revision/' . $revision->id) }}">{{ $revision->description }}</a></p>              
-				@endforeach
-			</section>
-
-			<hr>
-
-			<section>
-				<h2>Profiles</h2>
-
-				@foreach($profiles as $profile)
-		            <p><a href="{{ url('/user/' . $profile->username) }}">{{ $profile->username }}</a></p>              
-				@endforeach
-			</section>
-
-		@endif
+			@endif
+		@endif		
 
 	@stop

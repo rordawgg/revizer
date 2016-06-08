@@ -5,48 +5,49 @@
 @section("content")
 
 	<div id="doc-cont">
-		@if(!empty(Auth::user()->id) && ($doc->user_id === Auth::user()->id))
-		    <div>
-		        <a href="{{ url('/doc/' . $doc->id . '/edit') }}">Edit</a>
-		    </div>
-		@endif
-		<header>
+		@include("partial.doc_author_info")
+
+		<header class="rev-doc-head">
 			<h1>{{ $doc->title }}</h1>
 		</header>
-
+		
 		<div class="category">
-			<h2>Category</h2>
-			<p>{{ ucfirst($doc->cat->name) }}</p>
+			<div>{{ ucfirst($doc->cat->name) }}</div>
 		</div>
 
-		<div class="description">
-			<h2>Description</h2>
-			<p>{{ $doc->description }}</p>
-		</div>
+		<div class="doc-info">
+			<hr>
+			<div class="des-crit-cont">
+				<div class="description">
+					<div class="sm-sub-head"><h5>Description</h5></div>
+					<p>{{ $doc->description }}</p>
+				</div>
 
-		<div class="criteria">
-			<h2>Criteria</h2>
-			<p>{{ $doc->criteria }}</p>
+				<div class="criteria">
+					<div class="sm-sub-head"><h5>Criteria</h5></div>
+					<p>{{ $doc->criteria }}</p>
+				</div>
+			</div>
+			<hr>
 		</div>
 
 		<div class="body">
-			<h2>Body</h2>
-			<p>{{ $doc->body }}</p>
+			<div class="sm-sub-head"><h5>Body</h5></div>
+			<p><pre>{{ $doc->body }}</pre></p>
+			<hr>
 		</div>
 	</div>
-	
-	@unless(request()->user() && (request()->user()->id === $doc->user_id))
-		<div id="rev-cont">
-			<a href="{{ url('/doc/' . $doc->id . '/revision/create') }}">REVISE</a>
-		</div>
-	@endif
 
+	<div class="doc-rev-cont">
+		@unless(request()->user() && (request()->user()->id === $doc->user_id))
+			<a class="full-width-link" href="{{ url('/doc/' . $doc->id . '/revision/create') }}">REVISE</a>
+		@endif
 
-<h1>Revisions</h1>
-	@if(count($doc->revisions)!==0)
-		@include('docs.revisions')
-	@else
-		<h1>No revisions</h1>
-	@endif		
+		@if(count($doc->revisions)!==0)
+			@include('docs.revisions')
+		@else
+			<h1>No revisions</h1>
+		@endif		
+	</div>
 
 @stop

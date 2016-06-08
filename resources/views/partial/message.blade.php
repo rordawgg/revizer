@@ -1,3 +1,13 @@
-@if(Session::has("flash_message"))
-	<div style="background-color: red;" class="flash-message">{{ Session::get('flash_message') }}</div>
+@if(Session::has("alert"))
+	<div class="alert {{ session('alert')['level'] }}">{{ Session::get('alert')['message'] }}</div>
+@endif
+
+@if (count($errors) > 0)
+    <div class="error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
