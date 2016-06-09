@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100|Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300|Roboto);
 $primary: rgb(240, 240, 240);
 $secondary: #FFEB3B;
 $fontColor: rgb(80, 80, 80);
@@ -128,6 +128,10 @@ body {
 	background-color: $primary;
 	color: $fontColor;
 	font-size: 18px;
+}
+
+h1, h2, h3, h4, input, button {
+	font-weight: 100;
 }
 
 pre {

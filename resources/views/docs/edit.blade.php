@@ -6,6 +6,8 @@
 
 <div class="edit-doc">
 	<form method="post" action="{{ url('/doc/' . $doc->id . '/edit') }}"> 
+		{{ csrf_field() }}
+		<input type="hidden" name="_method" value="patch">
 		<input placeholder="Title" value="{{ $doc->title }}" type="text" name="title" class="title-input"/>
 			<textarea placeholder="Description" type="text" name="description" class="description-input"/>{{ $doc->description }}</textarea>
 			<textarea placeholder="Criteria" type="text" name="criteria" class="criteria-input"/>{{ $doc->criteria }}</textarea>

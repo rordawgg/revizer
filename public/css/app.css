@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100|Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300|Roboto);
 .vertical-center, #full-search-cont form {
   position: relative;
   top: 50%;
@@ -58,6 +58,9 @@ body {
   background-color: #f0f0f0;
   color: #505050;
   font-size: 18px; }
+
+h1, h2, h3, h4, input, button {
+  font-weight: 100; }
 
 pre {
   font-family: "Roboto Slab";
