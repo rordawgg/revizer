@@ -63,7 +63,7 @@ class Query extends Model
 
         $this->result = null;
 
-    	return count($result) > 0 ? $result : null;
+    	return $result ?: null;
     }
 
     /**

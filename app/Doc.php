@@ -33,10 +33,7 @@ class Doc extends Model
      */
     public function hasAcceptedRevision()
     {
-        return $this->revisions()->where("doc_id", "=", $this->id)
-                                            ->where("accepted", "=", 1)
-                                            ->orderBy("created_at", "DESC")
-                                            ->first();
+        return $this->revisions()->where("accepted", "=", 1)->first();
     }     
 
     /**
@@ -44,7 +41,7 @@ class Doc extends Model
      */
     public function removeUnaccepted()
     {
-        $this->revisions()->where("accepted", "!=", 1)->where("id", "!=", $this->id)->delete();
+        $this->revisions()->where("accepted", "=", 0)->delete();
     }
 
     /**
