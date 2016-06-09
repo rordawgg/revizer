@@ -4,7 +4,7 @@ $secondary: #FFEB3B;
 $fontColor: rgb(80, 80, 80);
 $tranTime: 300ms;
 $transparent: .9;
-$smallText: .75em;
+$smallText: .8em;
 $tablet: "(max-width: 1023px)";
 
 @mixin transform($transforms) {
@@ -127,7 +127,7 @@ body {
 	font-family: 'Roboto Slab', Helvetica, Arial, san-serif;
 	background-color: $primary;
 	color: $fontColor;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 pre {
