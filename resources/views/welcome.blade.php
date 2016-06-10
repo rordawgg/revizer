@@ -15,6 +15,9 @@
                             <input placeholder="Search" type="text" name="keyword">
                         </form>
                     </div>
+                    <div class="intro-video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/6wLWSq6edog" frameborder="0" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>
