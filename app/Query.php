@@ -2,9 +2,10 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use DB;
 
-class Query
+class Query extends Model
 {
 	public $keyword;
     public $model;
@@ -35,14 +36,13 @@ class Query
         return $this;
     }
 
-    public function where($field, $operator, $value)
-    {
-        $this->where[] = [
-            "field" => $field,
-            "operator" => $operator,
-            "value" => $value
-        ];
 
+    /**
+    * Set a where condition for the model being queried.
+    */
+    public function cond($field, $operator, $value)
+    {
+        $this->result = $this->model->where($field, $operator, $value);
         return $this;
     }
 
@@ -51,7 +51,7 @@ class Query
      */
     public function search()
     {
-        $this->result = $this->model;
+        $this->setResult();
 
         $this->result = $this->result->where(function ($query) {
             foreach ($this->fields as $field) {
@@ -59,10 +59,11 @@ class Query
             }
         });
 
-        $this->handleWhere();
-
         $result = $this->result->get();
-    	return count($result) > 0 ? $result : null;
+
+        $this->result = null;
+
+    	return count($result) ? $result : null;
     }
 
     /**
@@ -79,15 +80,16 @@ class Query
         return $this->results;
     }
 
-    private function handleWhere()
+    /**
+    * Set result prop if not set.
+    */
+    private function setResult()
     {
-        if (count($this->where) !== 0) {
-            foreach ($this->where as $cond) {
-                $this->result->where($cond["field"], $cond["operator"], $cond["value"]);
-            }
+        if (isset($this->result)) {
+            return;
         }
 
-        $this->where = [];
+        $this->result = $this->model;
 
         return $this->result;
     }

@@ -28,7 +28,7 @@ class QueryController extends Controller
 
             case 'revisions':
                 $query->in(new Revision)->fields(["description"])
-                                                        ->where("accepted", "=", 0)
+                                                        ->cond("accepted", "=", 0)
                                                         ->searchKeep("revisions");
                 break;
 
@@ -39,7 +39,7 @@ class QueryController extends Controller
             default:
                 $query->in(new Doc)->fields(["title", "description"])->searchKeep("docs");
                 $query->in(new Revision)->fields(["description"])
-                                                    ->where("accepted", "=", 0)
+                                                    ->cond("accepted", "=", 0)
                                                     ->searchKeep("revisions");
                 $query->in(new Profile)->fields(["username"])->searchKeep("profiles");
                 break;

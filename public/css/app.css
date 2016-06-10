@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100|Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300|Roboto);
 .vertical-center, #full-search-cont form {
   position: relative;
   top: 50%;
@@ -57,7 +57,10 @@ body {
   font-family: 'Roboto Slab', Helvetica, Arial, san-serif;
   background-color: #f0f0f0;
   color: #505050;
-  font-size: 16px; }
+  font-size: 18px; }
+
+h1, h2, h3, h4, input, button {
+  font-weight: 100; }
 
 pre {
   font-family: "Roboto Slab";
@@ -247,7 +250,7 @@ nav#sm-nav {
     padding: 3px; }
 
 #doc-cont .doc-info .des-crit-cont p {
-  font-size: 0.75em; }
+  font-size: 0.8em; }
 
 #doc-cont .doc-info .des-crit-cont > div {
   width: 40%;
@@ -259,16 +262,16 @@ nav#sm-nav {
   border-bottom: 2px #FFEB3B solid;
   padding: 20px; }
   .doc-rev-cont .revision a {
-    font-size: 0.75em; }
+    font-size: 0.8em; }
 
 .rev-info .description p {
-  font-size: 0.75em; }
+  font-size: 0.8em; }
 
 .listing {
   border-bottom: 2px #FFEB3B solid;
   padding: 20px; }
   .listing a {
-    font-size: 0.75em; }
+    font-size: 0.8em; }
 
 #cat-cont .cat-list {
   text-align: center;
@@ -351,6 +354,22 @@ nav#sm-nav {
   width: 100%;
   font-size: 3em;
   padding: 40px; }
+
+.intro-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden; }
+
+.intro-video iframe,
+.intro-video object,
+.intro-video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
 
 @media (max-width: 1023px) {
   nav#bg-nav {
